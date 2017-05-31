@@ -7,28 +7,41 @@ public class Usuario {
 	private Long id;
 	private String nome;
 	private String email;
+	private String senha;
 	private String cpf;
 	private Calendar dataNascimento;
-	private boolean isAdmin;
+	private boolean isAdmin = false;
 	
 	public Usuario() {	}
-
-	public Usuario(String nome, String email, String cpf, Calendar dataNascimento, boolean isAdmin) {
-		this.nome = nome;
-		this.email = email;
-		this.cpf = cpf;
-		this.dataNascimento = dataNascimento;
-		this.isAdmin = isAdmin;
-	}
 	
-	public Usuario(Long id, String nome, String email, String cpf, Calendar dataNascimento, boolean isAdmin) {
+	public Usuario(Long id, String nome, String email, String senha, String cpf, Calendar dataNascimento, boolean isAdmin) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.senha = senha;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 		this.isAdmin = isAdmin;
 	}
+
+	public Usuario(String nome, String email, String senha, String cpf, Calendar dataNascimento) {
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+	}
+
+
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 
 	public Long getId() {
 		return id;
