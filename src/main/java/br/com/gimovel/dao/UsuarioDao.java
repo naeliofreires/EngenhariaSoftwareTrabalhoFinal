@@ -3,6 +3,7 @@ package br.com.gimovel.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +24,12 @@ public class UsuarioDao {
 
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);
-
 			st.setString(1, usuario.getNome());
 			st.setString(2, usuario.getEmail());
 			st.setString(3, usuario.getSenha());
 			st.setString(4, usuario.getCpf());
-			//st.setDate(5, new Date(usuario.getDataNascimento().getTimeInMillis()));
 			st.setString(5, usuario.getDataNascimento());
 			st.setBoolean(6, false);
-
 			st.execute();
 			st.close();
 		} catch (Exception e) {
@@ -105,6 +103,76 @@ public class UsuarioDao {
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
+		}
+	}
+	
+	public Usuario getUsuario(Usuario usrx) {
+
+		String sql = "select * from usuario where email = ? and senha = ?";
+
+		try {
+			
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			
+			stmt.setString(1, usrx.getEmail());
+			stmt.setString(2, usrx.getSenha());
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			Usuario usr = new Usuario();
+			
+			if (rs.next()) {
+				usr.setId(rs.getInt("id"));
+				usr.setNome(rs.getString("nome"));
+				usr.setEmail(rs.getString("email"));
+//				usr.setSenha(rs.getString("senha"));
+				usr.setCpf(rs.getString("cpf"));
+				usr.setDataNascimento(rs.getString("dataNasc"));	
+				usr.setAdmin(rs.getBoolean("isadmin"));			
+			}
+			rs.close();
+			stmt.close();
+			return usr;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (this.connection != null) {
+				try {
+					this.connection.close();
+				} catch (SQLException e) {}
+			}
+		}
+	}
+	
+	public boolean existUsuario(String email, String senha) {
+		
+		String sql = "select * from usuario where email=? and senha=?";
+
+		try {
+			
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			
+			stmt.setString(1, email);
+			stmt.setString(2, senha);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()){
+				stmt.close();
+				return true;
+			}else{
+				stmt.close();
+				return false;
+			}		
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (this.connection != null) {
+				try {
+					this.connection.close();
+				} catch (SQLException e) {}
+			}
 		}
 	}
 }

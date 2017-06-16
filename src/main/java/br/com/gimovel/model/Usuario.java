@@ -1,7 +1,5 @@
 package br.com.gimovel.model;
 
-import java.util.Date;
-
 public class Usuario {
 
 	private int id;
@@ -43,17 +41,6 @@ public class Usuario {
 		this.dataNascimento = dataNascimento;
 	}
 
-
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-
 	public int getId() {
 		return id;
 	}
@@ -76,6 +63,14 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getCpf() {
@@ -101,5 +96,6 @@ public class Usuario {
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
+	
 	
 }

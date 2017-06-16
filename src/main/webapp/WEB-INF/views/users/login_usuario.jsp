@@ -26,12 +26,13 @@
 		</div>
 	</nav>
 	<hr>
+	
+	<!-- FORMULARIO DO LOGIN -->
 	<div class="container">
-		<form  class="row" action="logarUsuario" method="POST">
-		
+		<form  class="row" action="logar" method="POST">		
 			<div class="col s6"> 
 				<div class="input-field">
-					<input name="nome" type="text" class="validate" placeholder="login">
+					<input name="email" type="text" class="validate" placeholder="email">
 				</div>
 			</div>
 	
@@ -39,11 +40,11 @@
 				<div class="input-field "></div>
 				<input name="senha" type="password" class="validate" placeholder="senha">
 			</div>
-			
-			<button class="col s12 btn waves-effect waves-light container" type="submit">entrar	</button>
-			
+
+			<button class="col s12 btn waves-effect waves-light container" type="submit">entrar	</button>		
 		</form>		
 	</div>
+	
 	<!-- FOOTER -->
 	<footer class="page-footer green lighten-5 ">
 		<div class="footer-copyright green lighten-5">

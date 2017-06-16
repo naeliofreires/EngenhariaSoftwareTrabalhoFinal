@@ -33,7 +33,7 @@
 	<hr>
 	<div class="row">
 
-		<form class="col s12">
+		<form action="cadastrar" class="col s12" method="POST">
 			<div class="row">
 			
 				<div class="input-field col s4">
@@ -53,19 +53,19 @@
 				
 				<div class="input-field col s4">
 					<i class="material-icons prefix">today</i> 
-					<input name="dataNascimento" type="date" class="validate"> 
+					<input name="dataNascimento" type="text" class="validate"> 
 				</div>
 				
 				<div class="input-field col s4">
 					<i class="material-icons prefix">https</i> 
-					<input id="senha" type="password" class="validate" placeholder="senha"> 
+					<input name="senha" type="password" class="validate" placeholder="senha"> 
 				</div>
 				
-				<div class="input-field col s4">
+				<!-- <div class="input-field col s4">
 					<i class="material-icons prefix">https</i> 
 					<input name="senha2" type="password" class="validate" placeholder="Confirme sua senha"> 
 				</div>
-				
+				 -->
 				<div class="row">
 					<button class="col s12 btn waves-effect waves-light" type="submit">cadastrar</button>
 				</div>
