@@ -1,6 +1,9 @@
 package br.com.gimovel.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,4 +23,15 @@ public class UsuarioController {
 		new UsuarioDao().insertUser(usuario);
 		return "/users/login_usuario";
 	}
+	
+	@RequestMapping(value = "atualizar", method = RequestMethod.POST)
+	String atualizar(HttpSession session, Usuario usuario, Model model){
+		new UsuarioDao().updateUser(usuario);
+		
+		session.removeAttribute("usuario");
+		session.setAttribute("usuario", new UsuarioDao().getUsuario(usuario));
+		
+		model.addAttribute("usuario_m",  new UsuarioDao().getUsuario(usuario));
+		return "/users/home_usuario";
+	}	
 }

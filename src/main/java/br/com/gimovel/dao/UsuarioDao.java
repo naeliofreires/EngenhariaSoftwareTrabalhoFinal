@@ -125,7 +125,6 @@ public class UsuarioDao {
 				usr.setId(rs.getInt("id"));
 				usr.setNome(rs.getString("nome"));
 				usr.setEmail(rs.getString("email"));
-//				usr.setSenha(rs.getString("senha"));
 				usr.setCpf(rs.getString("cpf"));
 				usr.setDataNascimento(rs.getString("dataNasc"));	
 				usr.setAdmin(rs.getBoolean("isadmin"));			

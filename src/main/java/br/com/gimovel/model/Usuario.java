@@ -6,13 +6,11 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
-	private String cpf;
+	public String cpf;
 	private String dataNascimento;
 	private boolean isAdmin = false;
 	
-	public Usuario() {
-		
-	}
+	public Usuario() { }
 	
 	public Usuario(int id, String nome, String email, String senha, String cpf, String dataNascimento, boolean isAdmin) {
 		this.id = id;

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.gimovel.dao.UsuarioDao;
 import br.com.gimovel.model.Usuario;
@@ -18,12 +19,21 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "logar", method = RequestMethod.POST)
-	String logar(HttpSession session, Usuario usuario){
+	ModelAndView logar(HttpSession session, Usuario usuario){
+		
+		ModelAndView model = new ModelAndView("/users/login_usuario");
+		
 		if(new UsuarioDao().existUsuario(usuario.getEmail(), usuario.getSenha())){
-			session.setAttribute("usuario", new UsuarioDao().getUsuario(usuario));			
-			return "/users/home_usuario";
+			
+			model = new ModelAndView("/users/home_usuario");
+			Usuario x = new UsuarioDao().getUsuario(usuario);
+			model.addObject("usuario_m", x);
+			session.setAttribute("usuario", x);
+			
+			return model;
 		}
-		return"forward:login";
+		
+		return model;
 	}
 	
 	@RequestMapping("logout")
