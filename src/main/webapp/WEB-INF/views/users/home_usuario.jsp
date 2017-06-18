@@ -106,7 +106,11 @@
 				<i class="material-icons">place</i>Minhas Casas
 			</div>
 			<div class="collapsible-body">
-				<span>Vai ter as casas cadastradas do usuario</span>
+				<div class="container">
+					<label>Lista de Todas as Casas do User</label>
+					<a href="cadastro_imovel" class="btn btn-floating btn-large cyan pulse right"><i class="material-icons">add</i></a>
+				</div>
+				<br><br><br>
 			</div>
 		</li>
 		<li>

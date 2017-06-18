@@ -9,7 +9,7 @@ public class Imovel {
 	private float preco;
 	private boolean status;
 
-	//endere�o
+	//endereco
 	private String estado;
 	private String cidade;
 	private String bairro;
@@ -19,9 +19,7 @@ public class Imovel {
 	
 	private int iduser;
 	
-	public Imovel() {
-
-	}
+	public Imovel() { }
 
 	public Imovel(int id, String tipoimovel, int qtdquartos, String descricao, float preco, boolean status,
 			String estado, String cidade, String bairro, String rua, String numero, String complemento) {
@@ -39,13 +37,12 @@ public class Imovel {
 		this.complemento = complemento;
 	}
 
-	public Imovel(String tipoimovel, int qtdquartos, String descricao, float preco, boolean status, String estado,
+	public Imovel(String tipoimovel, int qtdquartos, String descricao, float preco, String estado,
 			String cidade, String bairro, String rua, String numero, String complemento) {
 		this.tipoimovel = tipoimovel;
 		this.qtdquartos = qtdquartos;
 		this.descricao = descricao;
 		this.preco = preco;
-		this.status = status;
 		this.estado = estado;
 		this.cidade = cidade;
 		this.bairro = bairro;
