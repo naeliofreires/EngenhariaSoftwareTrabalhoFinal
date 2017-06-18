@@ -103,11 +103,61 @@
 		</li>
 		<li>
 			<div class="collapsible-header">
-				<i class="material-icons">place</i>Minhas Casas
+				<i class="material-icons">place</i>
+				Minhas Casas
 			</div>
+			
+			
 			<div class="collapsible-body">
 				<div class="container">
-					<label>Lista de Todas as Casas do User</label>
+				
+<!-- 				É ESSE AQUI NÁELIO xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+					<form action=mostrarimovel method="post">
+						<input name ="iduser" hidden="true" value="${usuario.id}">
+						<button type="submit">Listar Minhas Casas</button>
+					</form>
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th>ID do Imovel</th>
+								<th>Tipo de Imovel</th>
+								<th>Quantidade de Quartos</th>
+								<th>Preço do Imóvel</th>
+								<th>Descrição</th>
+								<th>Estado</th>
+								<th>Cidade</th>
+								<th>Bairro</th>
+								<th>Rua</th>
+								<th>Número</th>
+								<th>Complemento</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${imoveis}" var="imovel">
+								<tr>
+									<td>${imovel.id}</td>
+									<td>${imovel.tipoimovel}</td>
+									<td>${imovel.qtdquartos}</td>
+									<td>${imovel.preco}</td>
+									<td>${imovel.descricao}</td>
+									<td>${imovel.estado}</td>
+									<td>${imovel.cidade}</td>
+									<td>${imovel.bairro}</td>
+									<td>${imovel.rua}</td>
+									<td>${imovel.numero}</td>
+									<td>${imovel.complemento}</td>
+									<td>
+										<p>APAGAR</p>
+									</td>
+									<td>
+										<p>EDITAR</p>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 					<a href="cadastro_imovel" class="btn btn-floating btn-large cyan pulse right"><i class="material-icons">add</i></a>
 				</div>
 				<br><br><br>
