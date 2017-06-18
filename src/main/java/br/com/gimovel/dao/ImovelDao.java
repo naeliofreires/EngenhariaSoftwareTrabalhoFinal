@@ -24,7 +24,7 @@ public class ImovelDao {
 		
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);
-			st.setString(1, imovel.getTipoImovel());
+			st.setString(1, imovel.getTipoimovel());
 			st.setInt(2, imovel.getQtdquartos());
 			st.setString(3, imovel.getDescricao());
 			st.setFloat(4, imovel.getPreco());
@@ -64,7 +64,7 @@ public class ImovelDao {
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);
 			
-			st.setString(1, imovel.getTipoImovel());
+			st.setString(1, imovel.getTipoimovel());
 			st.setInt(2, imovel.getQtdquartos());
 			st.setString(3, imovel.getDescricao());
 			st.setFloat(4, imovel.getPreco());

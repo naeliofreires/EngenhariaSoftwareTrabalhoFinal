@@ -14,13 +14,13 @@ import br.com.gimovel.model.Usuario;
 @Controller
 public class ImovelController {
 
-	@RequestMapping("cadastrarImovel")
+	@RequestMapping("cadastro_imovel")
 	String telaCadastrar(){
 		return "/users/cadastrar_imovel";
 	}
 	
-	@RequestMapping(value = "cadastro_imovel", method = RequestMethod.POST )
-	String cadastrar(Imovel imovel){
+	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
+	String cadastrar(Imovel imovel, HttpSession session){		
 		new ImovelDao().insertImovel(imovel);
 		return "/users/home_usuario";
 	}

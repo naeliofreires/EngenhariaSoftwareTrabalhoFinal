@@ -92,12 +92,12 @@ public class Imovel {
 		this.id = id;
 	}
 
-	public String getTipoImovel() {
+	public String getTipoimovel() {
 		return tipoimovel;
 	}
 
-	public void setTipoImovel(String tipoImovel) {
-		this.tipoimovel = tipoImovel;
+	public void setTipoimovel(String tipoimovel) {
+		this.tipoimovel = tipoimovel;
 	}
 
 	public String getDescricao() {
