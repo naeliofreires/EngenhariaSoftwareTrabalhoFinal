@@ -110,27 +110,19 @@
 			
 			<div class="collapsible-body">
 				<div class="container">
-				
-<!-- 				É ESSE AQUI NÁELIO xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-					<form action=mostrarimovel method="post">
-						<input name ="iduser" hidden="true" value="${usuario.id}">
-						<button type="submit">Listar Minhas Casas</button>
-					</form>
-
-					<table class="table">
+							
+					<table class="striped responsive-table">
 						<thead>
 							<tr>
-								<th>ID do Imovel</th>
-								<th>Tipo de Imovel</th>
-								<th>Quantidade de Quartos</th>
-								<th>Preço do Imóvel</th>
+								<th>Tipo</th>
+								<th>Quartos</th>
+								<th>R$</th>
 								<th>Descrição</th>
 								<th>Estado</th>
 								<th>Cidade</th>
 								<th>Bairro</th>
 								<th>Rua</th>
-								<th>Número</th>
+								<th>Nº</th>
 								<th>Complemento</th>
 							</tr>
 						</thead>
@@ -158,9 +150,13 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<a href="cadastro_imovel" class="btn btn-floating btn-large cyan pulse right"><i class="material-icons">add</i></a>
+					
 				</div>
+				
+				<a href="cadastro_imovel" class="btn btn-floating cyan right"><i class="material-icons">add</i></a>
+				
 				<br><br><br>
+				
 			</div>
 		</li>
 		<li>
@@ -173,16 +169,7 @@
 		</li>
 	</ul>
 
-	<!-- FOOTER -->
-	<!-- <footer class="page-footer  green lighten-5 ">
-		<div class="footer-copyright  green lighten-5">
-			<div class="container ">
-				<span class="black-text text-darken-2">© 2014 Copyright Text </span>
-				<a class="black-text text-darken-2 text-lighten-4 right" href="#!">More Links</a>
-			</div>
-		</div>
-	</footer>
-	 -->
+
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/home_usuario.js"/>"></script>	

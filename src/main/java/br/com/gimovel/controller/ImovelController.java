@@ -1,14 +1,11 @@
 package br.com.gimovel.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.gimovel.dao.ImovelDao;
 import br.com.gimovel.model.Imovel;
@@ -33,14 +30,5 @@ public class ImovelController {
 		model.addAttribute("imoveis",  new ImovelDao().getAllImovel());
 		return "/users/home_usuario";
 	}
-	
-	//Consultas
-	
-	@RequestMapping(value = "mostrarimovel", method = RequestMethod.POST)
-	String show(Model model, HttpSession session, @RequestParam(value = "iduser") int iduser) {
-		System.out.println(iduser);
-		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(iduser);
-		model.addAttribute("imoveis", imoveis);
-    	return "/users/home_usuario";
-	}
+		
 }
