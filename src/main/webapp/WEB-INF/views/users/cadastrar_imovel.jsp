@@ -32,6 +32,7 @@
 			<form action="cadastrarImovel" method="POST" class="col s12">
 				<div class="row">
 					
+					<!-- Indica para qual usuario o novo movel vai pertencer1  -->
 					<input name ="iduser" hidden="true" value="${usuario.id}">
 					
 					<div class="input-field col s6">

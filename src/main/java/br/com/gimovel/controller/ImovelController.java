@@ -20,25 +20,40 @@ public class ImovelController {
 	String telaCadastrar(){
 		return "/users/cadastrar_imovel";
 	}
-	
+
 	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
 	String cadastrar(Imovel imovel, HttpSession session, Model model){		
 		new ImovelDao().insertImovel(imovel);
-		
+
 		Usuario usuario_ = (Usuario) session.getAttribute("usuario");
-		
+
 		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
 
 		model.addAttribute("imoveis", imoveis);
-		
+
 		return "/users/home_usuario";
 	}
-	
+
 	@RequestMapping(value = "atualizaimovel", method = RequestMethod.POST)
 	String atualizar(HttpSession session, Imovel imovel, Model model){
 		new ImovelDao().updateImovel(imovel);
 		model.addAttribute("imoveis",  new ImovelDao().getAllImovel());
 		return "/users/home_usuario";
 	}
-		
+
+	@RequestMapping(value="remover")
+	String delete(Imovel imovel, Model model, HttpSession session){
+
+		new ImovelDao().deleteImovel(imovel.getId());
+
+		Usuario usuario_ = (Usuario) session.getAttribute("usuario");
+
+		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
+
+		model.addAttribute("imoveis", imoveis);
+
+		return "/users/home_usuario";
+
+	}
+
 }

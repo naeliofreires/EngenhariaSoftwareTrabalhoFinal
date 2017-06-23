@@ -23,8 +23,105 @@
 		</div>
 	</nav>
 	<hr>
+	
+	
 
+	<!-- Modal - Atualizar Imovel -->
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4>Atualizar Imovel</h4>
+			<div class="container">
+				<form action=""  method="POST">
+				
+					<div class="row">
+					
+						<input name="iduser" hidden="true" value="${usuario.id}">
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="tipoimovel" type="text" class="validate"> 
+							<label for="tipoimovel">Tipo do Imovel</label>
+						</div>
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="qtdquartos" type="text" class="validate"> 
+							<label for="qtdquartos">Quantidade de Quartos</label>
+						</div>
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="preco"	type="tel" class="validate"> 
+							<label for="preco">Preço do Imovel</label>
+						</div>
+
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="estado" type="text" class="validate">
+							<label for="estado">Estado</label>
+						</div>
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="cidade" type="text" class="validate"> 
+							<label for="cidade">Cidade</label>
+						</div>
+
+
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="bairro" type="text" class="validate"> 
+							<label for="bairro">Bairro</label>
+						</div>
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="rua" type="text" class="validate"> 
+							<label for="rua">Rua</label>
+						</div>
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i>
+							<input name="numero" type="text" class="validate"> 
+							<label for="numero">Numero</label>
+						</div>
+
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="complemento" type="text" class="validate"> 
+							<label for="complemento">Complemento</label>
+						</div>
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix"></i> 
+							<input name="descricao" type="text" class="validate" maxlength="250">
+							<label for="descricao">Descricao</label>
+						</div>
+						
+						<div class="container">
+							<button class="btn waves-effect waves-light col s12"
+								type="submit" name="action">
+								update <i class="material-icons right">mode_edit</i>
+							</button>
+						</div>
+
+					</div>
+					
+				</form>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!"
+				class="modal-action modal-close waves-effect waves-green btn-flat">Sair</a>
+		</div>
+	</div>
+
+	<!-- Colapso -->
 	<ul class="collapsible" data-collapsible="accordion">
+		
 		<li>
 			<div class="collapsible-header">
 				<i class="material-icons">perm_identity</i>Meu Perfil
@@ -101,6 +198,7 @@
 					</div>
 			</div>
 		</li>
+		
 		<li>
 			<div class="collapsible-header">
 				<i class="material-icons">place</i>
@@ -142,10 +240,10 @@
 									</td>
 									<td>${imovel.complemento}</td>
 									<td>
-										<p><a href="#" class="waves-effect waves-light btn blue"><i class="material-icons">mode_edit</i></a></p>            
+										<p><a class="waves-effect waves-light btn" href="#modal1"><i class="material-icons">mode_edit</i></a></p>            
 									</td>
 									<td>
-										<p><a href="#" class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></p>            
+										<p><a href="remover?id=${imovel.id}" class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></p>            
 									</td>
 								</tr>
 							</c:forEach>
@@ -173,7 +271,7 @@
 
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js"/>"></script>	
-	<script type="text/javascript" src="<c:url value="/resources/js/home_usuario.js"/>"></script>	
+	<script type="text/javascript" src="<c:url value="/resources/js/script.js"/>"></script>	
 </body>
 </html>
 
