@@ -119,32 +119,33 @@
 								<th>R$</th>
 								<th>Descrição</th>
 								<th>Estado</th>
-								<th>Cidade</th>
-								<th>Bairro</th>
-								<th>Rua</th>
-								<th>Nº</th>
-								<th>Complemento</th>
+								<th>Endereço</th>
+								<th>Complento</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${imoveis}" var="imovel">
 								<tr>
-									<td>${imovel.id}</td>
 									<td>${imovel.tipoimovel}</td>
 									<td>${imovel.qtdquartos}</td>
 									<td>${imovel.preco}</td>
 									<td>${imovel.descricao}</td>
 									<td>${imovel.estado}</td>
-									<td>${imovel.cidade}</td>
-									<td>${imovel.bairro}</td>
-									<td>${imovel.rua}</td>
-									<td>${imovel.numero}</td>
+									<td>
+										Cidade: ${imovel.cidade}
+										<br>
+										Bairro: ${imovel.bairro}
+										<br>
+										Rua: ${imovel.rua}
+										<br>
+										Número: ${imovel.numero}
+									</td>
 									<td>${imovel.complemento}</td>
 									<td>
-										<p>APAGAR</p>
+										<p><a href="#" class="waves-effect waves-light btn blue"><i class="material-icons">mode_edit</i></a></p>            
 									</td>
 									<td>
-										<p>EDITAR</p>
+										<p><a href="#" class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></p>            
 									</td>
 								</tr>
 							</c:forEach>
