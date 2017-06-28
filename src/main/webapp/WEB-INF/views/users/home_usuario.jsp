@@ -11,173 +11,167 @@
 </head>
 <body>
 
-	<!-- HEADER -->
+	<!-- Header -->
 	<nav class="teal">
-		<div class="nav-wrapper   green lighten-5">
+		<div class="nav-wrapper  blue darken-1">
 			<img src="<c:url value="/resources/img/logo.png"/> "  height="55"/>  
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li>
-					<a href="logout" target="_self" class=" col s12 waves-effect waves-light btn red">sair </a> 
+					<a id="side_nav" href="#" data-activates="slide-out" ><i
+						class="material-icons">menu</i></a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-	
-	<hr>
-			
-	<ul class="collapsible" data-collapsible="accordion">
+
+
+	<!-- Side Nav Menu -->
+	<ul id="slide-out" class="side-nav ">
 		
 		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">perm_identity</i>Meu Perfil
-			</div>
-			<!-- CARD - MEUS DADOS -->
-			<div class="collapsible-body">
-				<div class="container row">
-						<div class="col s6">
-							<!-- CARD COM OS DADOS -->
-							<div class="row">
-								<div class="col s12 m6">
-									<div class="card blue-grey darken-1">
-										<div class="card-content white-text">
-											<span class="card-title">Meus Dados</span>
-											<label>Nome:</label>
-											<p>${usuario_m.nome}</p>
-											<label>Email:</label>
-											<p>${usuario_m.email }</p>
-											<label>CPF:</label>
-											<p>${usuario_m.cpf}</p>
-											<label>Nascimento:</label>
-											<p>${usuario_m.dataNascimento}</p>
-										</div>
-										<div class="card-action">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-							
-						<!-- FORMULARIO ATUALIZAR -->
-						<form class="col s6" action="atualizar" method="POST">
-							<div class="row">
-								
-								<input name="id" value="${usuario_m.id}" hidden="true">
-								
-								<div class="input-field col s6">
-									<i class="material-icons prefix">account_circle</i> 
-									<input name="nome" type="text" class="validate" placeholder="Nome">
-								</div>
-	
-								<div class="input-field col s6">
-									<i class="material-icons prefix">email</i> 
-									<input name="email"	type="email" class="validate" placeholder="Email">
-								</div>
-	
-								<div class="input-field col s6">
-									<i class="material-icons prefix">vpn_key</i> 
-									<input name="cpf" type="text" class="validate" placeholder="000.000.000 - 00">
-								</div>
-	
-								<div class="input-field col s6">
-									<i class="material-icons prefix">today</i> 
-									<input name="dataNascimento" type="text" class="validate" placeholder="00/00/0000">
-								</div>
-									
-								<div class="input-field col s6">
-									<i class="material-icons prefix">https</i> 
-									<input name="senha"	type="password" class="validate" placeholder="Digite sua senha">
-								</div>
-								
-								<div class="input-field col s6">
-									<i class="material-icons prefix">https</i> 
-									<input name="senha2" type="password" class="validate" placeholder="Confirme sua senha...">
-								</div>
-	
-								<div class="row">
-									<button class="col s12 btn waves-effect waves-light"
-										type="submit">atualizar</button>
-								</div>
-							</div>
-						</form>
-					
-					</div>
-			</div>
-		</li>
-		
-		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">place</i>
-				Minhas Casas
-			</div>
-			
-			
-			<div class="collapsible-body">
-				<div class="container">
-							
-					<table class="striped responsive-table">
-						<thead>
-							<tr>
-								<th>Tipo</th>
-								<th>Quartos</th>
-								<th>R$</th>
-								<th>Descrição</th>
-								<th>Estado</th>
-								<th>Endereço</th>
-								<th>Complento</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${imoveis}" var="imovel">
-								<tr>
-									<td>${imovel.tipoimovel}</td>
-									<td>${imovel.qtdquartos}</td>
-									<td>${imovel.preco}</td>
-									<td>${imovel.descricao}</td>
-									<td>${imovel.estado}</td>
-									<td>
-										Cidade: ${imovel.cidade}
-										<br>
-										Bairro: ${imovel.bairro}
-										<br>
-										Rua: ${imovel.rua}
-										<br>
-										Número: ${imovel.numero}
-									</td>
-									<td>${imovel.complemento}</td>
-									<td>
-										<p>
-											<a class="waves-effect waves-light btn"
-												href="atualizaImovel?id=${imovel.id}"><i
-												class="material-icons">mode_edit</i></a>
-										</p>
-									</td>
-									<td>
-										<p><a href="remover?id=${imovel.id}" class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></p>            
-									</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-					
+			<div class="user-view">
+				<div class="background">
+					<p style="text-align: center;">
+						<img src="<c:url value="/resources/img/logo.png"/> " /> 
+					</p>					
 				</div>
-				
-				<a href="cadastro_imovel" class="btn btn-floating cyan right"><i class="material-icons">add</i></a>
-				
-				<br><br><br>
-				
 			</div>
 		</li>
+
+		<li><a href="#!"><i class="material-icons">perm_identity</i>profile</a></li>
 		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">whatshot</i>Third
-			</div>
-			<div class="collapsible-body">
-				<span>Lorem ipsum dolor sit amet.</span>
-			</div>
-		</li>
+			<a href="#modal1">
+			<i class="material-icons">add</i>
+		 	add house</a>
+		 </li>
+		
+		<li><div class="divider"></div></li>
+		
+		<li><a class="waves-effect" href="logout"><i class="material-icons">exit_to_app</i>exit</a></li>
 	</ul>
 
+	<hr>
+		<h5 style="text-align: center">Minhas Casas</h5>
+	<hr>
+	
+	<div class="container">
+		
+		<div class="row">
+		<c:forEach var="imovel" items="${imoveis}">
+			<div class="col s3">
+				<div class="card">
+					<div class="card-image container">
+						<div class="container">
+							<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
+						</div>  
+						<span class="black-text name card-title">Imovel</span>
+					</div>
+					
+					<div class="card-content">
+						<label class="black-text name">Cidade: ${imovel.cidade}</label><br>
+						<label class="black-text name">Bairro: ${imovel.bairro}</label><br>
+						<label class="black-text name">Estado: ${imovel.estado}</label><br>
+					</div>
+					
+					<div class="card-action">
+						<a href="#">Editar</a>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+	
+	</div>
 
+	<!-- Modal Add House -->
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<div class="container">
+		<div class="row">
+
+			<form action="cadastrarImovel" method="POST" >
+				<div class="row">
+					
+					<div class="input-field col s6">
+						<i class="material-icons prefix">store</i> 
+						<input name="tipoimovel" type="text" class="validate"> 
+						<label for="tipoimovel">Tipo do Imovel</label>
+					</div>
+					
+					<div class="input-field col s6">
+						<i class="material-icons prefix">account_circle</i> 
+						<input name="qtdquartos" type="text" class="validate"> 
+						<label for="qtdquartos">Quantidade de Quartos</label>
+					</div>
+									
+					<div class="input-field col s6">
+						<i class="material-icons prefix">phone</i> 
+						<input name="preco" type="tel" class="validate"> 
+						<label for="preco">Preço do Imovel</label>
+					</div>
+					
+					
+					<div class="input-field col s6">
+						<i class="material-icons prefix">phone</i> 
+						<input name="estado" type="text" class="validate"> 
+						<label for="estado">Estado</label>
+					</div>
+					
+					<div class="input-field col s6">
+						<i class="material-icons prefix">phone</i> 
+						<input name="cidade" type="text" class="validate"> 
+						<label for="cidade">Cidade</label>
+					</div>
+					
+				
+					<div class="input-field col s6">
+						<i class="material-icons prefix">phone</i> 
+						<input name="bairro" type="text" class="validate"> 
+						<label for="bairro">Bairro</label>
+					</div>
+						
+					<div class="input-field col s6">
+						<i class="material-icons prefix">phone</i> 
+						<input name="rua" type="text" class="validate"> 
+						<label for="rua">Rua</label>
+					</div>
+						
+					<div class="input-field col s6">
+						<i class="material-icons prefix">phone</i> 
+						<input name="numero" type="text" class="validate"> 
+						<label for="numero">Numero</label>
+					</div>
+											
+					<div class="input-field col s6">
+						<i class="material-icons prefix">phone</i> 
+						<input name="complemento" type="text" class="validate"> 
+						<label for="complemento">Complemento</label>
+					</div>
+					
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> 
+						<input name="descricao" type="text" class="validate" maxlength="250"> 
+						<label for="descricao">Descricao</label>
+					</div>
+					
+					<div class="container">
+						<button class="btn waves-effect waves-light col s12" type="submit"	name="action">
+						register
+						<i class="material-icons right">add</i>
+						</button>
+					</div>
+					
+				</div>
+			</form>				
+		</div>
+		</div>
+	</div>
+		<div class="modal-footer">
+			<a href="#!"
+				class="modal-action modal-close waves-effect waves-green btn-flat">exit</a>
+		</div>
+	</div>
+	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/script.js"/>"></script>	

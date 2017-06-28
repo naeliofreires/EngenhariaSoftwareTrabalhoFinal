@@ -16,11 +16,6 @@ import br.com.gimovel.model.Usuario;
 @Controller
 public class ImovelController {
 
-	@RequestMapping("cadastro_imovel")
-	String telaCadastrar(){
-		return "/users/cadastrar_imovel";
-	}
-	
 	@RequestMapping("atualizaImovel")
 	String telaAtualiza(Imovel imovel, Model model){
 		model.addAttribute("imovel_edit", imovel);
@@ -30,15 +25,18 @@ public class ImovelController {
 
 	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
 	String cadastrar(Imovel imovel, HttpSession session, Model model){		
+		
+		Usuario usuario = (Usuario) session.getAttribute("usuarioS");
+		
+		imovel.setIduser(usuario.getId());
+		
 		new ImovelDao().insertImovel(imovel);
+		
+		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario.getId());
+		
+		session.setAttribute("imoveis", imoveis);
 
-		Usuario usuario_ = (Usuario) session.getAttribute("usuario");
-
-		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
-
-		model.addAttribute("imoveis", imoveis);
-
-		return "/users/home_usuario";
+		return "redirect:minhaHome";
 	}
 
 	@RequestMapping(value = "atualizaImovel", method = RequestMethod.POST)

@@ -10,17 +10,17 @@
 </head>
 <body>
 
-	<!-- HEADER -->
+	<!-- Header -->
 	<nav class="teal">
-		<div class="nav-wrapper ">
+		<div class="nav-wrapper blue darken-1">
 			<img src="<c:url value="/resources/img/logo.png"/> "  height="55"/>  
 			<ul id="nav-mobile" class="right hide-on-med-and-down">	
 				<li>
 					<a href="#modal1">login</a>
 				</li>
 				<li>
-					<a href="cadastrarUsuario" target="_self" >cadastre-se 
-					<i class="material-icons right">supervisor_account</i></a> 
+					<a href="#modal2">sign up 
+					<i class="material-icons right">supervisor_account</i></a>
 				</li>
 			</ul>
 		</div>
@@ -54,6 +54,58 @@
 	
 		</div>	
 		
+		<div class="modal-footer">
+			<a href="#!"
+				class="modal-action modal-close waves-effect waves-green btn-flat ">cancel</a>
+		</div>
+	</div>
+
+	<!-- Modal Form Register -->
+	<div id="modal2" class="modal modal-fixed-footer">
+		<div class="modal-content">
+				<p style="text-align: center;">
+					<img src="<c:url value="/resources/img/logo.png"/> " height="55" />
+				</p>
+				<form action="cadastrar" class="col s12" method="POST">
+				<div class="row">
+				
+					<div class="input-field col s4">
+						<i class="material-icons prefix">account_circle</i> 
+						<input name="nome" type="text" class="validate" placeholder="Nome"> 
+					</div>
+					
+					<div class="input-field col s4">
+						<i class="material-icons prefix">email</i> 
+						<input name="email"	type="email" class="validate" placeholder="Email"> 
+					</div>
+					
+					<div class="input-field col s4">
+						<i class="material-icons prefix">vpn_key</i> 
+						<input name="cpf" type="text" class="validate" placeholder="000.000.000 - 00" maxlength=""> 
+					</div>
+					
+					<div class="input-field col s4">
+						<i class="material-icons prefix">today</i> 
+						<input name="dataNascimento" type="text" class="validate" placeholder="00/00/0000" maxlength="10"> 
+					</div>
+					
+					<div class="input-field col s4">
+						<i class="material-icons prefix">https</i> 
+						<input name="senha" type="password" class="validate" placeholder="senha" maxlength="8"> 
+					</div>
+					
+					<div class="input-field col s4">
+						<i class="material-icons prefix">https</i> 
+						<input name="senha2" type="password" class="validate" placeholder="Confirme sua senha"> 
+					</div>
+					
+					<div class="row">
+						<button class="col s12 btn waves-effect waves-light" type="submit">register</button>
+					</div>
+					
+				</div>
+			</form>
+		</div>
 		<div class="modal-footer">
 			<a href="#!"
 				class="modal-action modal-close waves-effect waves-green btn-flat ">cancel</a>

@@ -17,11 +17,6 @@ import br.com.gimovel.model.Usuario;
 @Controller
 public class LoginController {
 
-	@RequestMapping("login")
-	String login(){
-		return "/users/login_usuario";
-	}
-
 	@RequestMapping(value = "logar", method = RequestMethod.POST)
 	String logar(HttpSession session, Usuario usuario, Model model){
 
@@ -29,18 +24,18 @@ public class LoginController {
 
 			Usuario usuario_ = new UsuarioDao().getUsuario(usuario);
 
-			model.addAttribute("usuario_m", usuario_);
+			model.addAttribute("usuarioM", usuario_);
 
-			session.setAttribute("usuario", usuario_);
+			session.setAttribute("usuarioS", usuario_);
 
 			List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
-
-			model.addAttribute("imoveis", imoveis);
+			
+			session.setAttribute("imoveis", imoveis);
 
 			return "/users/home_usuario";
 		}
 
-		return "/users/login_usuario";
+		return "redirect:/";
 	}
 
 	@RequestMapping("logout")

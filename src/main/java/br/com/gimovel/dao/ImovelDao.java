@@ -402,7 +402,7 @@ public class ImovelDao {
 		}
 	}
 	
-	public List<Imovel> getImovelByUsuario(int iduserGet){
+	public List<Imovel> getImovelByUsuario(Integer iduserGet){
 		String sql = "select * from imovel where iduser = ?";
 		
 		try {

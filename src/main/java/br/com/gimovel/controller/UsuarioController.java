@@ -18,37 +18,32 @@ import br.com.gimovel.model.Usuario;
 public class UsuarioController {
 	
 	
+	
 	@RequestMapping("minhaHome")
 	String telaHome(HttpSession session, Model model){
 		
-		Usuario usuario_ = (Usuario) session.getAttribute("usuario");
+		Usuario usuario = (Usuario) session.getAttribute("usuarioS");
 
-		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
+		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario.getId());
 
 		model.addAttribute("imoveis", imoveis);
 
 		return "/users/home_usuario";
 	}
 	
-	@RequestMapping("cadastrarUsuario")
-	String telaCadastrar(){
-		return "/users/cadastrar_usuario";
-	}
-	
 	@RequestMapping(value = "cadastrar", method = RequestMethod.POST )
 	String cadastrar(Usuario usuario){
 		new UsuarioDao().insertUser(usuario);
-		return "/users/login_usuario";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "atualizar", method = RequestMethod.POST)
 	String atualizar(HttpSession session, Usuario usuario, Model model){
 		new UsuarioDao().updateUser(usuario);
 		
-		session.removeAttribute("usuario");
-		session.setAttribute("usuario", new UsuarioDao().getUsuario(usuario));
+		session.removeAttribute("usuarioS");
+		session.setAttribute("usuarioS", new UsuarioDao().getUsuario(usuario));
 		
-		model.addAttribute("usuario_m",  new UsuarioDao().getUsuario(usuario));
 		return "/users/home_usuario";
 	}	
 }
