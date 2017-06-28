@@ -152,7 +152,7 @@
 										</p>
 									</td>
 									<td>
-										<p><a href="#" class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></p>            
+										<p><a href="remover?id=${imovel.id}" class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></p>            
 									</td>
 								</tr>
 							</c:forEach>

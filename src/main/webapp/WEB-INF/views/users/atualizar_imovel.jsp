@@ -16,11 +16,7 @@
 			<img src="<c:url value="/resources/img/logo.png"/> "  height="55"/>  
 			<ul id="nav-mobile" class="right hide-on-med-and-down">	
 				<li>
-					<a href="login"class="waves-effect waves-light btn">entrar</a> 
-				</li>
-				<li>
-					<a href="cadastrarUsuario" target="_self" class=" col s12 waves-effect waves-light btn">cadastre-se 
-					<i class="material-icons right">supervisor_account</i></a> 
+					<a href="minhaHome"class="waves-effect waves-light btn">Home</a> 
 				</li>
 			</ul>
 		</div>
