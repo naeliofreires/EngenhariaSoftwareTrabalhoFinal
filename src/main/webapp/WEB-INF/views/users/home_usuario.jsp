@@ -24,7 +24,8 @@
 		</div>
 	</nav>
 
-
+	<br>
+	
 	<!-- Side Nav Menu -->
 	<ul id="slide-out" class="side-nav ">
 		
@@ -50,37 +51,49 @@
 		<li><a class="waves-effect" href="logout"><i class="material-icons">exit_to_app</i>Exit</a></li>
 	</ul>
 
-	<hr>
-		<h5 style="text-align: center">Minhas Casas</h5>
-	<hr>
+
+	<br>
 	
+	<!-- Paginação das Casas -->
 	<div class="container">
-		
-		<div class="row">
-		<c:forEach var="imovel" items="${imoveis}">
-			<div class="col s3">
-				<div class="card">
-					<div class="card-image container">
-						<div class="container">
-							<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
-						</div>  
-						<span class="black-text name card-title">Imovel</span>
+	<div class="row">
+		<div class="col s12">
+			<ul class="tabs">
+				<li class="tab col s4"><a href="#test1">Casas</a></li>
+				<li class="tab col s4"><a href="#test2">Apartamentos</a>
+				<li class="tab col s4"><a href="#test3">Lotes</a></li>
+			</ul>
+		</div>
+		<div id="test1" class="col s12">
+				
+				<div class="row">
+				<c:forEach var="imovel" items="${imoveis}">
+					<div class="col s4">
+						<div class="card">
+							<div class="card-image container">
+								<div class="container">
+									<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
+								</div>  
+							</div>
+							
+							<div class="card-content">
+								<label class="black-text name">Cidade: ${imovel.cidade}</label><br>
+								<label class="black-text name">Bairro: ${imovel.bairro}</label><br>
+								<label class="black-text name">Estado: ${imovel.estado}</label><br>
+							</div>
+							
+							<div class="card-action">
+								<a href="atualizaImovel">Editar</a>
+							</div>
+						</div>
 					</div>
-					
-					<div class="card-content">
-						<label class="black-text name">Cidade: ${imovel.cidade}</label><br>
-						<label class="black-text name">Bairro: ${imovel.bairro}</label><br>
-						<label class="black-text name">Estado: ${imovel.estado}</label><br>
-					</div>
-					
-					<div class="card-action">
-						<a href="atualizaImovel">Editar</a>
-					</div>
-				</div>
-			</div>
-		</c:forEach>
+				</c:forEach>
+				</div>		
+			
+		</div><!--Final Div Casas  -->
+		<div id="test2" class="col s12">Test 2</div>
+		<div id="test3" class="col s12">Test 3</div>
 	</div>
-	
 	</div>
 
 	<!-- Modal Add House -->
