@@ -38,16 +38,16 @@
 			</div>
 		</li>
 
-		<li><a href="#!"><i class="material-icons">perm_identity</i>profile</a></li>
+		<li><a href="#!"><i class="material-icons">perm_identity</i>Profile</a></li>
 		<li>
 			<a href="#modal1">
 			<i class="material-icons">add</i>
-		 	add house</a>
+		 	Add House</a>
 		 </li>
 		
 		<li><div class="divider"></div></li>
 		
-		<li><a class="waves-effect" href="logout"><i class="material-icons">exit_to_app</i>exit</a></li>
+		<li><a class="waves-effect" href="logout"><i class="material-icons">exit_to_app</i>Exit</a></li>
 	</ul>
 
 	<hr>
@@ -74,7 +74,7 @@
 					</div>
 					
 					<div class="card-action">
-						<a href="#">Editar</a>
+						<a href="atualizaImovel">Editar</a>
 					</div>
 				</div>
 			</div>
@@ -87,88 +87,88 @@
 	<div id="modal1" class="modal">
 		<div class="modal-content">
 			<div class="container">
-		<div class="row">
-
-			<form action="cadastrarImovel" method="POST" >
 				<div class="row">
-					
-					<div class="input-field col s6">
-						<i class="material-icons prefix">store</i> 
-						<input name="tipoimovel" type="text" class="validate"> 
-						<label for="tipoimovel">Tipo do Imovel</label>
-					</div>
-					
-					<div class="input-field col s6">
-						<i class="material-icons prefix">account_circle</i> 
-						<input name="qtdquartos" type="text" class="validate"> 
-						<label for="qtdquartos">Quantidade de Quartos</label>
-					</div>
-									
-					<div class="input-field col s6">
-						<i class="material-icons prefix">phone</i> 
-						<input name="preco" type="tel" class="validate"> 
-						<label for="preco">Preço do Imovel</label>
-					</div>
-					
-					
-					<div class="input-field col s6">
-						<i class="material-icons prefix">phone</i> 
-						<input name="estado" type="text" class="validate"> 
-						<label for="estado">Estado</label>
-					</div>
-					
-					<div class="input-field col s6">
-						<i class="material-icons prefix">phone</i> 
-						<input name="cidade" type="text" class="validate"> 
-						<label for="cidade">Cidade</label>
-					</div>
-					
-				
-					<div class="input-field col s6">
-						<i class="material-icons prefix">phone</i> 
-						<input name="bairro" type="text" class="validate"> 
-						<label for="bairro">Bairro</label>
-					</div>
+					<form action="cadastrarImovel" method="POST">
+						<div class="row">
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">store</i> <input
+									name="tipoimovel" type="text" class="validate"> <label
+									for="tipoimovel">Tipo do Imovel</label>
+							</div>
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">account_circle</i> <input
+									name="qtdquartos" type="text" class="validate"> <label
+									for="qtdquartos">Quantidade de Quartos</label>
+							</div>
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">credit_card</i> <input
+									name="preco" type="tel" class="validate"> <label
+									for="preco">Preço do Imovel</label>
+							</div>
+
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">location_on</i> <input
+									name="estado" type="text" class="validate"> <label
+									for="estado">Estado</label>
+							</div>
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">location_on</i> <input
+									name="cidade" type="text" class="validate"> <label
+									for="cidade">Cidade</label>
+							</div>
+
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">location_on</i> <input
+									name="bairro" type="text" class="validate"> <label
+									for="bairro">Bairro</label>
+							</div>
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">location_on</i> <input
+									name="rua" type="text" class="validate"> <label
+									for="rua">Rua</label>
+							</div>
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">location_on</i> <input
+									name="numero" type="text" class="validate"> <label
+									for="numero">Numero</label>
+							</div>
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">location_on</i> <input
+									name="complemento" type="text" class="validate"> <label
+									for="complemento">Complemento</label>
+							</div>
+
+							<div class="input-field col s6">
+								<i class="material-icons prefix">mode_edit</i> <input
+									name="descricao" type="text" class="validate" maxlength="250">
+								<label for="descricao">Descricao</label>
+							</div>
+
+							<div class="container">
+								<button class="btn waves-effect waves-light col s12"
+									type="submit" name="action">
+									Registrar <i class="material-icons right">add</i>
+								</button>
+							</div>
+
 						
-					<div class="input-field col s6">
-						<i class="material-icons prefix">phone</i> 
-						<input name="rua" type="text" class="validate"> 
-						<label for="rua">Rua</label>
-					</div>
-						
-					<div class="input-field col s6">
-						<i class="material-icons prefix">phone</i> 
-						<input name="numero" type="text" class="validate"> 
-						<label for="numero">Numero</label>
-					</div>
-											
-					<div class="input-field col s6">
-						<i class="material-icons prefix">phone</i> 
-						<input name="complemento" type="text" class="validate"> 
-						<label for="complemento">Complemento</label>
-					</div>
-					
-					<div class="input-field col s6">
-						<i class="material-icons prefix">mode_edit</i> 
-						<input name="descricao" type="text" class="validate" maxlength="250"> 
-						<label for="descricao">Descricao</label>
-					</div>
-					
-					<div class="container">
-						<button class="btn waves-effect waves-light col s12" type="submit"	name="action">
-						register
-						<i class="material-icons right">add</i>
-						</button>
-					</div>
-					
-				</div>
-			</form>				
-		</div>
-		</div>
-	</div>
-		<div class="modal-footer">
-			<a href="#!"
-				class="modal-action modal-close waves-effect waves-green btn-flat">exit</a>
+							<div class="modal-footer">
+								<a href="#!"
+									class="modal-action modal-close waves-effect waves-green btn-flat">exit</a>
+							</div>
+						</div>
+					</form>
+				</div>				
+			</div>
 		</div>
 	</div>
 	

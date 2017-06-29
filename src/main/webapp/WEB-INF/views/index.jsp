@@ -16,10 +16,10 @@
 			<img src="<c:url value="/resources/img/logo.png"/> "  height="55"/>  
 			<ul id="nav-mobile" class="right hide-on-med-and-down">	
 				<li>
-					<a href="#modal1">login</a>
+					<a href="#modal1">Login</a>
 				</li>
 				<li>
-					<a href="#modal2">sign up 
+					<a href="#modal2">Sign Up 
 					<i class="material-icons right">supervisor_account</i></a>
 				</li>
 			</ul>
@@ -38,16 +38,16 @@
 					<div class="container">
 						<div class="col s12"> 
 						<div class="input-field">
-							<input name="email" type="text" class="validate" placeholder="email">
+							<input name="email" type="text" class="validate" placeholder="Digite seu email">
 						</div>
 						</div>
 			
 						<div class="col s12">
 							<div class="input-field "></div>
-							<input name="senha" type="password" class="validate" placeholder="senha">
+							<input name="senha" type="password" class="validate" placeholder="Digite sua senha">
 						</div>
 		
-						<button class="col s12 btn waves-effect waves-light container" type="submit">entrar	</button>	
+						<button class="col s12 btn waves-effect waves-light container" type="submit">Entrar	</button>	
 					</div>	
 				</form>		
 			</div>
@@ -56,7 +56,7 @@
 		
 		<div class="modal-footer">
 			<a href="#!"
-				class="modal-action modal-close waves-effect waves-green btn-flat ">cancel</a>
+				class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
 		</div>
 	</div>
 
@@ -86,12 +86,12 @@
 					
 					<div class="input-field col s4">
 						<i class="material-icons prefix">today</i> 
-						<input name="dataNascimento" type="text" class="validate" placeholder="00/00/0000" maxlength="10"> 
+						<input name="dataNascimento" type="Date" class="validate" placeholder="00/00/0000" maxlength="10"> 
 					</div>
 					
 					<div class="input-field col s4">
 						<i class="material-icons prefix">https</i> 
-						<input name="senha" type="password" class="validate" placeholder="senha" maxlength="8"> 
+						<input name="senha" type="password" class="validate" placeholder="Senha" maxlength="8"> 
 					</div>
 					
 					<div class="input-field col s4">
@@ -100,7 +100,7 @@
 					</div>
 					
 					<div class="row">
-						<button class="col s12 btn waves-effect waves-light" type="submit">register</button>
+						<button class="col s12 btn waves-effect waves-light" type="submit">Registrar</button>
 					</div>
 					
 				</div>
@@ -108,7 +108,7 @@
 		</div>
 		<div class="modal-footer">
 			<a href="#!"
-				class="modal-action modal-close waves-effect waves-green btn-flat ">cancel</a>
+				class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
 		</div>
 	</div>
 

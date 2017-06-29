@@ -21,9 +21,7 @@
 			</ul>
 		</div>
 	</nav>
-	<hr>
-	
-	
+	<hr>	
 
 			<div class="container">
 				<form action="atualizaImovel"  method="POST">
@@ -63,8 +61,6 @@
 							<input name="cidade" type="text" class="validate"> 
 							<label for="cidade">Cidade</label>
 						</div>
-
-
 
 						<div class="input-field col s6">
 							<i class="material-icons prefix"></i> 

@@ -26,7 +26,7 @@ public class ImovelController {
 	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
 	String cadastrar(Imovel imovel, HttpSession session, Model model){		
 		
-		Usuario usuario = (Usuario) session.getAttribute("usuarioS");
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		
 		imovel.setIduser(usuario.getId());
 		
