@@ -16,13 +16,11 @@ import br.com.gimovel.model.Usuario;
 
 @Controller
 public class UsuarioController {
-	
-	
-	
+		
 	@RequestMapping("minhaHome")
 	String telaHome(HttpSession session, Model model){
 		
-		Usuario usuario = (Usuario) session.getAttribute("usuarioS");
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
 
 		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario.getId());
 
@@ -42,8 +40,9 @@ public class UsuarioController {
 		new UsuarioDao().updateUser(usuario);
 		
 		session.removeAttribute("usuarioS");
-		session.setAttribute("usuarioS", new UsuarioDao().getUsuario(usuario));
+		session.setAttribute("usuarioS", new UsuarioDao().getUsuarioByIdAndEmail(usuario));
 		
 		return "/users/home_usuario";
 	}	
+
 }

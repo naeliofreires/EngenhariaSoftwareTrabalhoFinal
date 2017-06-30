@@ -106,7 +106,7 @@ public class UsuarioDao {
 		}
 	}
 	
-	public Usuario getUsuario(Usuario usrx) {
+	public Usuario getUsuarioByIdAndEmail(Usuario usrx) {
 
 		String sql = "select * from usuario where email = ? and senha = ?";
 
@@ -143,6 +143,44 @@ public class UsuarioDao {
 		}
 	}
 	
+	public Usuario getUsuarioById(Integer id){
+		
+		String sql = "select * from usuario where id=?";
+
+		try {
+			
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			
+			stmt.setLong(1, id);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			Usuario usr = new Usuario();
+			
+			if (rs.next()) {
+				usr.setId(rs.getInt("id"));
+				usr.setNome(rs.getString("nome"));
+				usr.setEmail(rs.getString("email"));
+				usr.setCpf(rs.getString("cpf"));
+				usr.setDataNascimento(rs.getString("dataNasc"));	
+				usr.setAdmin(rs.getBoolean("isadmin"));			
+			}
+			
+			rs.close();
+			stmt.close();
+			return usr;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (this.connection != null) {
+				try {
+					this.connection.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+	}
+	
 	public boolean existUsuario(String email, String senha) {
 		
 		String sql = "select * from usuario where email=? and senha=?";
@@ -174,4 +212,5 @@ public class UsuarioDao {
 			}
 		}
 	}
+
 }

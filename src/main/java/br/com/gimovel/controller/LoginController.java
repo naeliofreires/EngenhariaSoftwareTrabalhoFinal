@@ -22,11 +22,11 @@ public class LoginController {
 
 		if(new UsuarioDao().existUsuario(usuario.getEmail(), usuario.getSenha())){			
 
-			Usuario usuario_ = new UsuarioDao().getUsuario(usuario);
+			Usuario usuario_ = new UsuarioDao().getUsuarioByIdAndEmail(usuario);
 
 			model.addAttribute("usuarioM", usuario_);
 
-			session.setAttribute("usuarioS", usuario_);
+			session.setAttribute("usuario", usuario_);
 
 			List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
 			
@@ -43,4 +43,5 @@ public class LoginController {
 		session.invalidate();
 		return "redirect:/";
 	}
+
 }

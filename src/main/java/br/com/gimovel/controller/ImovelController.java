@@ -1,5 +1,6 @@
 package br.com.gimovel.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,12 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.gimovel.dao.ImovelDao;
+import br.com.gimovel.dao.UsuarioDao;
 import br.com.gimovel.model.Imovel;
 import br.com.gimovel.model.Usuario;
 
 @Controller
 public class ImovelController {
 
+	private ImovelDao idao;
+	private UsuarioDao udao;
+	
+	public ImovelController() {
+		idao = new ImovelDao();
+		udao = new UsuarioDao();
+	}
+	
 	@RequestMapping("atualizaImovel")
 	String telaAtualiza(Imovel imovel, Model model){
 		model.addAttribute("imovel_edit", imovel);
@@ -23,6 +33,7 @@ public class ImovelController {
 		return "/users/atualizar_imovel";
 	}
 
+	
 	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
 	String cadastrar(Imovel imovel, HttpSession session, Model model){		
 		
@@ -38,6 +49,7 @@ public class ImovelController {
 
 		return "redirect:minhaHome";
 	}
+	
 
 	@RequestMapping(value = "atualizaImovel", method = RequestMethod.POST)
 	String atualizar(Imovel imovel, Model model, HttpSession session){
@@ -52,6 +64,7 @@ public class ImovelController {
 		
 		return "/users/home_usuario";
 	}
+	
 
 	@RequestMapping(value="remover")
 	String delete(Imovel imovel, Model model, HttpSession session){
@@ -66,6 +79,17 @@ public class ImovelController {
 
 		return "/users/home_usuario";
 
+	}
+
+
+	@RequestMapping("pagina-inicial")
+	String telaHome(HttpSession session){
+		
+		ArrayList<Imovel> imoveis = (ArrayList<Imovel>) idao.getAllImovel();
+		
+		session.setAttribute("imoveis", imoveis);
+		
+		return "pagina-inicial";
 	}
 
 }

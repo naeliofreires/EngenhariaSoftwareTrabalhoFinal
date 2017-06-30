@@ -436,4 +436,46 @@ public class ImovelDao {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public Imovel getImovelById(Integer id){
+		
+		Imovel imovel = new Imovel();
+		
+		String SQL = "select * from imovel where id=?";
+		
+		try {
+			
+			PreparedStatement st = connection.prepareStatement(SQL);
+			
+			st.setInt(1, id);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
+				Integer idx = rs.getInt("id");
+				String tipoimovel = rs.getString("tipoimovel");
+				int qtdquartos = rs.getInt("qtdquartos");
+				String descricao = rs.getString("descricao");
+				float preco = rs.getFloat("preco");
+				boolean status = rs.getBoolean("status");
+				String estado = rs.getString("estado");
+				String cidade = rs.getString("cidade");
+				String bairro = rs.getString("bairro");
+				String rua = rs.getString("rua");
+				String numero = rs.getString("numero");
+				String complemento = rs.getString("complemento");
+				int iduser = rs.getInt("iduser");
+				
+				imovel = new Imovel(idx, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser);
+			}
+			
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return imovel;
+	}
+	
+	
 }
