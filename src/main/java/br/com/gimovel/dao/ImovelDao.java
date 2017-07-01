@@ -368,7 +368,8 @@ public class ImovelDao {
 	}
 
 	public List<Imovel> getImovelByTipoImovel(String tipoimovelGet){
-		String sql = "select * from imovel where tipoimovel = ?";
+		
+		String sql = "select * from imovel where tipoimovel=?";
 		
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);

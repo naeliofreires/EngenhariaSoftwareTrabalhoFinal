@@ -26,7 +26,7 @@
 			<a href="#!" class="brand-logo"><img src="<c:url value="/resources/img/logo.png"/> "  height="55"/></a>
 			<ul class="right hide-on-med-and-down">
 				<li><a href="pagina-inicial" class="black-text name">Página Inicial</a></li>
-				<li><a href="badges.html" class="black-text name">Configuração</a></li>
+				
 				<!-- Dropdown Trigger -->
 				<li>
 					<a class="dropdown-button black-text name" href="#!" data-activates="dropdown1"> ${usuario.email}

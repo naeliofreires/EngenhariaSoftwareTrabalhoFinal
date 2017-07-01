@@ -1,4 +1,6 @@
 
+$('.slider').slider();
+
 $('.collapsible').collapsible();
 
 $('.modal').modal();
@@ -20,9 +22,9 @@ $('#editarPerfil').click(function() {
 });
 
 $('#addCasa').click(function() {
-	
+
 	$('#form-adicionar-casa').show();
-	
+
 	$('#form-atualizar-perfil').hide();
 	$('#form-atualizar-imovel').hide();	
 	$('#casasPaginacao').hide();

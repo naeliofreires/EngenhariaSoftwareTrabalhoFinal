@@ -1,3 +1,8 @@
+html{
+	font-family: "Times New Roman";
+	background: #EEEEE0;
+}
+
 nav {
 	background-color: #F2F2f2;
 }
@@ -8,4 +13,9 @@ nav {
 	
 	border: solid 1px;
 	border-radius: 10px;
+}
+
+.branco{
+	background: white;	
+	border-radius: 5px;
 }

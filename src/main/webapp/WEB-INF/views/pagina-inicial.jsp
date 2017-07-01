@@ -22,7 +22,6 @@
 			<a href="#!" class="brand-logo"><img src="<c:url value="/resources/img/logo.png"/> "  height="55"/></a>
 			<ul class="right hide-on-med-and-down">
 				<li><a href="pagina-inicial" class="black-text name">Página Inicial</a></li>
-				<li><a href="badges.html" class="black-text name">Configuração</a></li>
 				<!-- Dropdown Trigger -->
 				<li>
 					<a class="dropdown-button black-text name" href="#!" data-activates="dropdown1"> ${usuario.email}
@@ -56,16 +55,16 @@
 		<div class="row">
 			<div class="col s12">
 				<ul class="tabs">
-					<li class="tab col s4"><a href="#test1">Casas</a></li>
-					<li class="tab col s4"><a href="#test2">Apartamentos</a>
-					<li class="tab col s4"><a href="#test3">Lotes</a></li>
+					<li class="tab col s4"><a href="#casa">Casas</a></li>
+					<li class="tab col s4"><a href="#apartamento">Apartamentos</a>
+					<li class="tab col s4"><a href="#lote">Lotes</a></li>
 				</ul>
 			</div>
-			<div id="test1" class="col s12">
-					
+			
+			<div id="casa" class="col s12">					
 					<div class="row">
-					<c:forEach var="imovel" items="${imoveis}">
-						<div class="col s4">
+					<c:forEach var="casa" items="${casas}">
+						<div class="col s3">
 							<div class="card">
 								<div class="card-image container">
 									<div class="container">
@@ -74,13 +73,14 @@
 								</div>
 								
 								<div class="card-content">
-									<label class="black-text name">Cidade: ${imovel.cidade}</label><br>
-									<label class="black-text name">Bairro: ${imovel.bairro}</label><br>
-									<label class="black-text name">Estado: ${imovel.estado}</label><br>
+									<label class="black-text name">Cidade: ${casa.cidade}</label><br>
+									<label class="black-text name">Bairro: ${casa.bairro}</label><br>
+									<label class="black-text name">Estado: ${casa.estado}</label><br>
+									<label class="black-text name">R$: ${casa.preco}</label><br>
 								</div>
 								
 								<div class="card-action">
-									<a href="visualizarCasa?id=${imovel.id}">Visualizar</a>
+									<a href="visualizarCasa?id=${casa.id}">Visualizar</a>
 								</div>
 							</div>
 						</div>
@@ -88,10 +88,66 @@
 					</div>		
 				
 			</div><!--Final Div Casas  -->
-			<div id="test2" class="col s12">Test 2</div>
-			<div id="test3" class="col s12">Test 3</div>
+			
+			<div id="apartamento" class="col s12">
+			
+				<div class="row">
+					<c:forEach var="apartamento" items="${apartamentos}">
+						<div class="col s3">
+							<div class="card">
+								<div class="card-image container">
+									<div class="container">
+										<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
+									</div>  
+								</div>
+								
+								<div class="card-content">
+									<label class="black-text name">Cidade: ${apartamento.cidade}</label><br>
+									<label class="black-text name">Bairro: ${apartamento.bairro}</label><br>
+									<label class="black-text name">Estado: ${apartamento.estado}</label><br>
+									<label class="black-text name">R$: ${apartamento.preco}</label><br>
+								</div>
+								
+								<div class="card-action">
+									<a href="visualizarCasa?id=${apartamento.id}">Visualizar</a>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>	
+					
+			</div>
+			
+			<div id="lote" class="col s12">
+			
+				<div class="row">
+					<c:forEach var="lote" items="${lotes}">
+						<div class="col s3">
+							<div class="card">
+								<div class="card-image container">
+									<div class="container">
+										<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
+									</div>  
+								</div>
+								
+								<div class="card-content">
+									<label class="black-text name">Cidade: ${lote.cidade}</label><br>
+									<label class="black-text name">Bairro: ${lote.bairro}</label><br>
+									<label class="black-text name">Estado: ${lote.estado}</label><br>
+									<label class="black-text name">R$: ${lote.preco}</label><br>
+								</div>
+								
+								<div class="card-action">
+									<a href="visualizarCasa?id=${lote.id}">Visualizar</a>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>	
+					
+			</div>
 		</div>
-	</div>
+	</div>	
 	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js"/>"></script>	

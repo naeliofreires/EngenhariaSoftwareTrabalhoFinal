@@ -26,14 +26,6 @@ public class ImovelController {
 		udao = new UsuarioDao();
 	}
 	
-	@RequestMapping("atualizaImovel")
-	String telaAtualiza(Imovel imovel, Model model){
-		model.addAttribute("imovel_edit", imovel);
-		System.out.println(imovel.getId());
-		return "/users/atualizar_imovel";
-	}
-
-	
 	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
 	String cadastrar(Imovel imovel, HttpSession session, Model model){		
 		
@@ -85,11 +77,47 @@ public class ImovelController {
 	@RequestMapping("pagina-inicial")
 	String telaHome(HttpSession session){
 		
-		ArrayList<Imovel> imoveis = (ArrayList<Imovel>) idao.getAllImovel();
+		ArrayList<Imovel> casas = (ArrayList<Imovel>) idao.getImovelByTipoImovel("casa");
 		
-		session.setAttribute("imoveis", imoveis);
+		ArrayList<Imovel> apartamentos = (ArrayList<Imovel>) idao.getImovelByTipoImovel("apartamento");
+		
+		ArrayList<Imovel> lotes = (ArrayList<Imovel>) idao.getImovelByTipoImovel("lote");
+		
+		session.setAttribute("casas", casas);
+		
+		session.setAttribute("apartamentos", apartamentos);
+		
+		session.setAttribute("lote", lotes);
+		
 		
 		return "pagina-inicial";
 	}
-
+	
+	@RequestMapping("visualizarCasa")
+	String visualizarCasa(Imovel i, HttpSession session) {
+	
+		Imovel imovel = idao.getImovelById(i.getId());
+		
+		imovel.setTipoimovel(imovel.getTipoimovel().toUpperCase());
+		
+		session.setAttribute("selecionado", imovel);
+		
+		return "visualizar-casa";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
