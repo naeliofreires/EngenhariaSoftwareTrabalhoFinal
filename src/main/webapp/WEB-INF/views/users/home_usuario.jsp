@@ -67,7 +67,7 @@
 							</div>
 							
 							<div class="card-action">
-								<a href="atualizaImovel">Editar</a>
+								<a href="dadosImovel?id=${imovel.id}">Editar</a>
 							</div>
 						</div>
 					</div>

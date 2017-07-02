@@ -19,3 +19,7 @@ nav {
 	background: white;	
 	border-radius: 5px;
 }
+
+.lado-direito{
+	float: right;
+}

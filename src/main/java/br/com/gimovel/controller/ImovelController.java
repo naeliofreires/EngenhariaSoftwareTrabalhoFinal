@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.com.gimovel.dao.ImovelDao;
 import br.com.gimovel.dao.UsuarioDao;
@@ -98,13 +99,38 @@ public class ImovelController {
 	
 		Imovel imovel = idao.getImovelById(i.getId());
 		
+		//suario usuario = udao.getUsuarioById(imovel.getIduser());
+		
 		imovel.setTipoimovel(imovel.getTipoimovel().toUpperCase());
 		
 		session.setAttribute("selecionado", imovel);
+		//session.setAttribute("proprietario", usuario);
 		
 		return "visualizar-casa";
 	}
 	
+	@RequestMapping("dadosImovel")
+	String edicaoImovel(Imovel imovel, HttpSession session){
+		
+		imovel = idao.getImovelById(imovel.getId());
+		
+		session.setAttribute("selecionado", imovel);
+		
+		return "/users/edicao-imovel";
+	}
+	
+	@RequestMapping("situacao")
+	String situacao(Imovel imovel, HttpSession session){
+		
+		
+		idao.setStatusImovel(imovel); // trocando o status
+		
+		imovel = idao.getImovelById(imovel.getId());
+		
+		session.setAttribute("selecionado", imovel);
+		
+		return "/users/edicao-imovel";
+	}
 }
 
 

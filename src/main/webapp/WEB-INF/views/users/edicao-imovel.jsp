@@ -104,30 +104,20 @@
 				
 				<div class="branco">
 					<div class="container">
-						Valor de Venda
-						<h4>R$ ${selecionado.preco}</h4>
-						<div >
+						<h6>Status
 							<c:choose>
 								<c:when test="${selecionado.status == true}">
-        							<h5  style="color: green;">Disponivel</h5>
+        							<span  style="color: green;"> Disponivel 
+        							<a href="situacao?id=${imovel.id}&status=false"> alterar</a></span>
     							</c:when>
 							<c:otherwise>
-        							<h5 style="color: red;">Indisponivel</h5>
+        							<span style="color: red;"> Indisponivel
+        							<a href="situacao?id=${imovel.id}&status=true"> alterar</a></span>
     						</c:otherwise>
 							</c:choose>
-						</div>
+						</h6>
 					</div>
 				</div>
-				
-				<div class="branco">
-					<div class="container">
-						<h6> <b>Informações do Proprietário </b> </h6>
-						Nome: ${proprietario.nome} <br>
-						Email: ${proprietario.email } <br>
-						Telefone:  <br>
-					</div>
-				</div>
-				
 
 			</div>
 		</div>
@@ -141,6 +131,7 @@
 			</div>
 		</div>				
 	</div>
+	
 	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js"/>"></script>	

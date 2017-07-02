@@ -478,5 +478,22 @@ public class ImovelDao {
 		return imovel;
 	}
 	
+	public void setStatusImovel(Imovel imovel){
+		
+		String SQL = "update imovel set status=? where id=?";
+		
+		try {
+			
+			PreparedStatement stmt = connection.prepareStatement(SQL);
+			
+			stmt.setBoolean(1, imovel.getStatus());
+			stmt.setInt(2, imovel.getId());
+			
+			stmt.execute();
+	        stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 }

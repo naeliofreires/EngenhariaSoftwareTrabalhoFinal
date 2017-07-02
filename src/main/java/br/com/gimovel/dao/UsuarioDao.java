@@ -127,7 +127,6 @@ public class UsuarioDao {
 				usr.setEmail(rs.getString("email"));
 				usr.setCpf(rs.getString("cpf"));
 				usr.setDataNascimento(rs.getString("dataNasc"));	
-				usr.setAdmin(rs.getBoolean("isadmin"));			
 			}
 			rs.close();
 			stmt.close();
@@ -151,19 +150,19 @@ public class UsuarioDao {
 			
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			
-			stmt.setLong(1, id);
+			stmt.setInt(1, id);
 			
 			ResultSet rs = stmt.executeQuery();
 			
 			Usuario usr = new Usuario();
 			
 			if (rs.next()) {
+				
 				usr.setId(rs.getInt("id"));
 				usr.setNome(rs.getString("nome"));
 				usr.setEmail(rs.getString("email"));
 				usr.setCpf(rs.getString("cpf"));
 				usr.setDataNascimento(rs.getString("dataNasc"));	
-				usr.setAdmin(rs.getBoolean("isadmin"));			
 			}
 			
 			rs.close();
