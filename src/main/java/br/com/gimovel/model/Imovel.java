@@ -5,6 +5,8 @@ public class Imovel {
 	private int id;
 	private String tipoimovel;
 	private int qtdquartos;
+	private int qtdsuites;
+	private float area;
 	private String descricao;
 	private float preco;
 	private boolean status;
@@ -22,7 +24,7 @@ public class Imovel {
 	public Imovel() { }
 
 	public Imovel(int id, String tipoimovel, int qtdquartos, String descricao, float preco, boolean status,
-			String estado, String cidade, String bairro, String rua, String numero, String complemento) {
+			String estado, String cidade, String bairro, String rua, String numero, String complemento, int area, int suite) {
 		this.id = id;
 		this.tipoimovel = tipoimovel;
 		this.qtdquartos = qtdquartos;
@@ -35,10 +37,12 @@ public class Imovel {
 		this.rua = rua;
 		this.numero = numero;
 		this.complemento = complemento;
+		this.area = area;
+		this.qtdsuites = suite;
 	}
 
 	public Imovel(String tipoimovel, int qtdquartos, String descricao, float preco, String estado,
-			String cidade, String bairro, String rua, String numero, String complemento) {
+			String cidade, String bairro, String rua, String numero, String complemento, int suite, int area) {
 		this.tipoimovel = tipoimovel;
 		this.qtdquartos = qtdquartos;
 		this.descricao = descricao;
@@ -49,10 +53,12 @@ public class Imovel {
 		this.rua = rua;
 		this.numero = numero;
 		this.complemento = complemento;
+		this.area = area;
+		this.qtdsuites = suite;
 	}
 	
 	public Imovel(String tipoimovel, int qtdquartos, String descricao, float preco, boolean status, String estado,
-			String cidade, String bairro, String rua, String numero, String complemento, int iduser) {
+			String cidade, String bairro, String rua, String numero, String complemento, int iduser, int suite, float area) {
 		this.tipoimovel = tipoimovel;
 		this.qtdquartos = qtdquartos;
 		this.descricao = descricao;
@@ -65,10 +71,12 @@ public class Imovel {
 		this.numero = numero;
 		this.complemento = complemento;
 		this.iduser = iduser;
+		this.area = area;
+		this.qtdsuites = suite;
 	}
 	
 	public Imovel(int id, String tipoimovel, int qtdquartos, String descricao, float preco, boolean status,
-			String estado, String cidade, String bairro, String rua, String numero, String complemento, int iduser) {
+			String estado, String cidade, String bairro, String rua, String numero, String complemento, int iduser, int suite, float area) {
 		this.id = id;
 		this.tipoimovel = tipoimovel;
 		this.qtdquartos = qtdquartos;
@@ -82,6 +90,8 @@ public class Imovel {
 		this.numero = numero;
 		this.complemento = complemento;
 		this.iduser = iduser;
+		this.area = area;
+		this.qtdsuites = suite;
 	}
 	
 	public int getId() {
@@ -186,5 +196,20 @@ public class Imovel {
 	public void setIduser(int iduser) {
 		this.iduser = iduser;
 	}
-	
+
+	public int getQtdsuites() {
+		return qtdsuites;
+	}
+
+	public void setQtdsuites(int qtdsuites) {
+		this.qtdsuites = qtdsuites;
+	}
+
+	public float getArea() {
+		return area;
+	}
+
+	public void setArea(int area) {
+		this.area = area;
+	}
 }

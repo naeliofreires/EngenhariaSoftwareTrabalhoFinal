@@ -25,7 +25,7 @@
 		<div class="nav-wrapper">
 			<a href="#!" class="brand-logo"><img src="<c:url value="/resources/img/logo.png"/> "  height="55"/></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="pagina-inicial" class="black-text name">Página Inicial</a></li>
+				<li><a href="paginaInicial" class="black-text name">Página Inicial</a></li>
 				
 				<!-- Dropdown Trigger -->
 				<li>
@@ -98,12 +98,24 @@
 				</div>
 				
 				<div class="input-field col s6">
+					<i class="material-icons prefix">account_circle</i> 
+					<input	name="qtdsuites" type="text" class="validate"> 
+					<label	for="qtdsuites">Quantidade de Suites</label>
+				</div>
+				
+				<div class="input-field col s6">
+					<i class="material-icons prefix">account_circle</i> 
+					<input	name="area" type="text" class="validate"> 
+					<label	for="area">Área M²</label>
+				</div>
+				
+				<div class="input-field col s6">
 					<i class="material-icons prefix">credit_card</i> 
 					<input	name="preco" type="tel" class="validate"> 
-					<label	for="preco">Preço do Imovel</label>
-				
+					<label	for="preco">Preço do Imovel</label>				
 				</div>
-					<div class="input-field col s6">
+				
+				<div class="input-field col s6">
 					<i class="material-icons prefix">location_on</i> 
 					<input	name="estado" type="text" class="validate"> 
 					<label	for="estado">Estado</label>

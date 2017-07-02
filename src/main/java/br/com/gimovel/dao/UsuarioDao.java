@@ -20,7 +20,7 @@ public class UsuarioDao {
 	
 	public void insertUser(Usuario usuario){
 
-		String sql = "insert into usuario (nome,email,senha,cpf,dataNasc, isadmin) values (?,?,?,?,?,?)";
+		String sql = "insert into usuario (nome,email,senha,cpf,dataNasc) values (?,?,?,?,?)";
 
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);
@@ -29,7 +29,6 @@ public class UsuarioDao {
 			st.setString(3, usuario.getSenha());
 			st.setString(4, usuario.getCpf());
 			st.setString(5, usuario.getDataNascimento());
-			st.setBoolean(6, false);
 			st.execute();
 			st.close();
 		} catch (Exception e) {
@@ -65,6 +64,7 @@ public class UsuarioDao {
 		
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);
+			
 			st.setInt(1, id);
 			
 			st.execute();
@@ -92,9 +92,8 @@ public class UsuarioDao {
 				String senha = rs.getString("senha");
 				String cpf = rs.getString("cpf");
 				String dataNascimento = rs.getString("dataNasc");	
-				boolean isAdmin = rs.getBoolean("isadmin");
 				
-				usuarios.add(new Usuario(id,nome,email,senha, cpf, dataNascimento,isAdmin));
+				usuarios.add(new Usuario(id,nome,email,senha, cpf, dataNascimento));
 			}
 			
 			rs.close();

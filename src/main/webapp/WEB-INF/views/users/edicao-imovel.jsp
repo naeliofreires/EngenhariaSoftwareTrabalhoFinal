@@ -21,7 +21,7 @@
 		<div class="nav-wrapper">
 			<a href="#!" class="brand-logo"><img src="<c:url value="/resources/img/logo.png"/> "  height="55"/></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="pagina-inicial" class="black-text name">Página Inicial</a></li>
+				<li><a href="paginaInicial" class="black-text name">Página Inicial</a></li>
 				<!-- Dropdown Trigger -->
 				<li>
 					<a class="dropdown-button black-text name" href="#!" data-activates="dropdown1"> ${usuario.email}
@@ -75,7 +75,7 @@
 				
 				<div class="branco">
 					<div class="container">
-						<h6>${selecionado.tipoimovel}</h6>
+						<h6>Tipo do Imovel: ${selecionado.tipoimovel}</h6>
 						<h6>
 							Rua ${selecionado.rua}<br>
 							${selecionado.bairro }, ${selecionado.cidade } - ${selecionado.estado}
@@ -91,11 +91,11 @@
 								<span>Quartos</span>
 							</li>
 							<li>
-								
+								${selecionado.qtdsuites}
 								<span>Suites</span>
 							</li>
 							<li>
-								
+								${selecionado.area}
 								<span>Área(M²)</span>
 							</li>
 						</ul>

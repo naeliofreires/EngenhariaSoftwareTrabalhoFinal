@@ -23,3 +23,11 @@ nav {
 .lado-direito{
 	float: right;
 }
+
+.lado-esquerdo{
+	float: left;
+}
+
+.categorias{
+	width: 180px;
+}

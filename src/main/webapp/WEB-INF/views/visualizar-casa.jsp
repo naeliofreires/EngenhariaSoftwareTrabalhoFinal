@@ -21,7 +21,7 @@
 		<div class="nav-wrapper">
 			<a href="#!" class="brand-logo"><img src="<c:url value="/resources/img/logo.png"/> "  height="55"/></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="pagina-inicial" class="black-text name">Página Inicial</a></li>
+				<li><a href="paginaInicial" class="black-text name">Página Inicial</a></li>
 				<!-- Dropdown Trigger -->
 				<li>
 					<a class="dropdown-button black-text name" href="#!" data-activates="dropdown1"> ${usuario.email}
@@ -71,7 +71,7 @@
 		<div class="col s6">
 			<div class="container">
 			
-				<a href="pagina-inicial"> <i class="material-icons">reply</i> voltar para a busca</a><br>
+				<a href="paginaInicial"> <i class="material-icons">reply</i> voltar para a busca</a><br>
 				
 				<div class="branco">
 					<div class="container">
@@ -91,12 +91,12 @@
 								<span>Quartos</span>
 							</li>
 							<li>
-								
+								${selecionado.qtdsuites}
 								<span>Suites</span>
 							</li>
 							<li>
-								
-								<span>Área(M²)</span>
+								${selecionado.area}
+								<span>M²</span>
 							</li>
 						</ul>
 					</div>

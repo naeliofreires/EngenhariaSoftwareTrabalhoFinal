@@ -9,10 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.gimovel.dao.ImovelDao;
-import br.com.gimovel.dao.UsuarioDao;
 import br.com.gimovel.model.Imovel;
 import br.com.gimovel.model.Usuario;
 
@@ -20,11 +19,11 @@ import br.com.gimovel.model.Usuario;
 public class ImovelController {
 
 	private ImovelDao idao;
-	private UsuarioDao udao;
+//	private UsuarioDao udao;
 	
 	public ImovelController() {
 		idao = new ImovelDao();
-		udao = new UsuarioDao();
+//		udao = new UsuarioDao();
 	}
 	
 	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
@@ -75,7 +74,7 @@ public class ImovelController {
 	}
 
 
-	@RequestMapping("pagina-inicial")
+	@RequestMapping("paginaInicial")
 	String telaHome(HttpSession session){
 		
 		ArrayList<Imovel> casas = (ArrayList<Imovel>) idao.getImovelByTipoImovel("casa");
@@ -88,7 +87,7 @@ public class ImovelController {
 		
 		session.setAttribute("apartamentos", apartamentos);
 		
-		session.setAttribute("lote", lotes);
+		session.setAttribute("lotes", lotes);
 		
 		
 		return "pagina-inicial";
@@ -116,6 +115,7 @@ public class ImovelController {
 		
 		session.setAttribute("selecionado", imovel);
 		
+		imovel.setTipoimovel(imovel.getTipoimovel().toUpperCase());
 		return "/users/edicao-imovel";
 	}
 	
@@ -127,9 +127,44 @@ public class ImovelController {
 		
 		imovel = idao.getImovelById(imovel.getId());
 		
+		imovel.setTipoimovel(imovel.getTipoimovel().toUpperCase()); 
+		
 		session.setAttribute("selecionado", imovel);
 		
 		return "/users/edicao-imovel";
+	}
+	
+	@RequestMapping("filtrandoQuartos")
+	String filtroQuarto(@RequestParam(value="buscar") String busca, HttpSession session){
+		
+		Integer quantidade = Integer.parseInt(busca);
+		
+		if(quantidade >= 3){
+			List<Imovel> imoveis = idao.getImovelByQtdQuartosMaiorIgual(quantidade);
+			session.setAttribute("imoveisFiltrados", imoveis);
+		}else{
+			List<Imovel> imoveis = idao.getImovelByQtdQuartosIgual(quantidade);
+			
+			session.setAttribute("imoveisFiltrados", imoveis);
+		}
+		return "casas-filtradas";
+	}
+	
+	@RequestMapping("filtrandoPreco")
+	String filtroPreco(@RequestParam(value="buscar") String busca, HttpSession session){
+		
+		Float quantidade = Float.parseFloat(busca);
+		
+		if(quantidade >= 50000f){
+			List<Imovel> imoveis = idao.getImovelByPrecoMaiorIgual(quantidade);
+			
+			session.setAttribute("imoveisFiltrados", imoveis);
+		}else{
+			List<Imovel> imoveis = idao.getImovelByPrecoIgual(quantidade);
+			
+			session.setAttribute("imoveisFiltrados", imoveis);
+		}
+		return "casas-filtradas";
 	}
 }
 

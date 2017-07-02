@@ -8,19 +8,8 @@ public class Usuario {
 	private String senha;
 	public String cpf;
 	private String dataNascimento;
-	private boolean isAdmin = false;
 	
 	public Usuario() { }
-	
-	public Usuario(int id, String nome, String email, String senha, String cpf, String dataNascimento, boolean isAdmin) {
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-		this.cpf = cpf;
-		this.dataNascimento = dataNascimento;
-		this.isAdmin = isAdmin;
-	}
 	
 	public Usuario(int id, String nome, String email, String senha, String cpf, String dataNascimento) {
 		this.id = id;
@@ -85,15 +74,6 @@ public class Usuario {
 
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
-	}
-
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-	
+	}	
 	
 }
