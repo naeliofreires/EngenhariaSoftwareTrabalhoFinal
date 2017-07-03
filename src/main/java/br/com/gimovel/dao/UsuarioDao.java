@@ -105,7 +105,7 @@ public class UsuarioDao {
 		}
 	}
 	
-	public Usuario getUsuarioByIdAndEmail(Usuario usrx) {
+	public Usuario getUsuarioByEmailAndSenha(Usuario usrx) {
 
 		String sql = "select * from usuario where email = ? and senha = ?";
 

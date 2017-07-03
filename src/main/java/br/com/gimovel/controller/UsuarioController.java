@@ -40,7 +40,7 @@ public class UsuarioController {
 		new UsuarioDao().updateUser(usuario);
 		
 		session.removeAttribute("usuarioS");
-		session.setAttribute("usuarioS", new UsuarioDao().getUsuarioByIdAndEmail(usuario));
+		session.setAttribute("usuarioS", new UsuarioDao().getUsuarioByEmailAndSenha(usuario));
 		
 		return "/users/home_usuario";
 	}	
