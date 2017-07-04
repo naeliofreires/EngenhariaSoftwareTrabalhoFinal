@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 		<li><a href="minhaHome"><i class="material-icons">perm_identity</i> Meu Perfil</a></li>
 		
 		<li class="divider"></li>
-		<li><a href="#!"><i class="material-icons">exit_to_app</i> sair </a></li>
+		<li><a href="logout"><i class="material-icons">exit_to_app</i> sair </a></li>
 	</ul>
 	<nav>
 		<div class="nav-wrapper">
@@ -33,105 +34,119 @@
 	
 	<br>
 	
-	<div class="container row">
-		<div class="col s6">
-			 <div class="slider">
-			    <ul class="slides">
-			      <li>
-			        <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
-			        <div class="caption center-align">
-			          <h3>This is our big Tagline!</h3>
-			          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-			        </div>
-			      </li>
-			      <li>
-			        <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
-			        <div class="caption left-align">
-			          <h3>Left Aligned Caption</h3>
-			          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-			        </div>
-			      </li>
-			      <li>
-			        <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
-			        <div class="caption right-align">
-			          <h3>Right Aligned Caption</h3>
-			          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-			        </div>
-			      </li>
-			      <li>
-			        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
-			        <div class="caption center-align">
-			          <h3>This is our big Tagline!</h3>
-			          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-			        </div>
-			      </li>
-			    </ul>
-			 </div>
-		</div>
-		<div class="col s6">
-			<div class="container">
-			
-				<a href="pagina-inicial"> <i class="material-icons">reply</i> voltar para a busca</a><br>
-				
-				<div class="branco">
-					<div class="container">
-						<h6>Tipo do Imovel: ${selecionado.tipoimovel}</h6>
-						<h6>
-							Rua ${selecionado.rua}<br>
-							${selecionado.bairro }, ${selecionado.cidade } - ${selecionado.estado}
-						</h6>
-					</div>					
-				</div>
-				
-				<div class="branco">
-					<div class="container">
-						<ul>
-							<li>
-								${selecionado.qtdquartos}
-								<span>Quartos</span>
-							</li>
-							<li>
-								${selecionado.qtdsuites}
-								<span>Suites</span>
-							</li>
-							<li>
-								${selecionado.area}
-								<span>Área(M²)</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-				
-				<div class="branco">
-					<div class="container">
-						<h6>Status
-							<c:choose>
-								<c:when test="${selecionado.status == true}">
-        							<span  style="color: green;"> Disponivel 
-        							<a href="situacao?id=${imovel.id}&status=false"> alterar</a></span>
-    							</c:when>
-							<c:otherwise>
-        							<span style="color: red;"> Indisponivel
-        							<a href="situacao?id=${imovel.id}&status=true"> alterar</a></span>
-    						</c:otherwise>
-							</c:choose>
-						</h6>
-					</div>
-				</div>
-
+	<div id="dadosImovel">
+		<div class="container row">
+			<div class="col s6">
+				 <div class="slider">
+				    <ul class="slides">
+				      <li>
+				        <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+				        <div class="caption center-align">
+				          <h3>This is our big Tagline!</h3>
+				          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				        </div>
+				      </li>
+				      <li>
+				        <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+				        <div class="caption left-align">
+				          <h3>Left Aligned Caption</h3>
+				          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				        </div>
+				      </li>
+				      <li>
+				        <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+				        <div class="caption right-align">
+				          <h3>Right Aligned Caption</h3>
+				          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				        </div>
+				      </li>
+				      <li>
+				        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+				        <div class="caption center-align">
+				          <h3>This is our big Tagline!</h3>
+				          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				        </div>
+				      </li>
+				    </ul>
+				 </div>
 			</div>
+			<div class="col s6">
+				<div class="container">
+				
+					<a href="minhaHome"> <i class="material-icons">reply</i> voltar para a busca</a><br>
+					
+					<div class="branco">
+						<div class="container">
+							<h6>Tipo do Imovel: ${selecionado.tipoimovel}</h6>
+							<h6>
+								Rua ${selecionado.rua}<br>
+								${selecionado.bairro }, ${selecionado.cidade } - ${selecionado.estado}
+							</h6>
+						</div>					
+					</div>
+					
+					<div class="branco">
+						<div class="container">
+							<ul>
+								<li>
+									${selecionado.qtdquartos}
+									<span>Quartos</span>
+								</li>
+								<li>
+									${selecionado.qtdsuites}
+									<span>Suites</span>
+								</li>
+								<li>
+									${selecionado.area}
+									<span>Área(M²)</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="branco">
+						<div class="container">
+							<h6>Status
+								<c:choose>
+									<c:when test="${selecionado.status == true}">
+	        							<span  style="color: green;"> Disponivel 
+	        							<a href="situacao?id=${imovel.id}&status=false"> alterar</a></span>
+	    							</c:when>
+								<c:otherwise>
+	        							<span style="color: red;"> Indisponivel
+	        							<a href="situacao?id=${imovel.id}&status=true"> alterar</a></span>
+	    						</c:otherwise>
+								</c:choose>
+							</h6>
+						</div>
+					</div>
+					
+					<div class="branco">
+						<div class="container">
+							<a id="updateImovel" href="#">editar imovel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="branco">
+				<div class="container">
+					<h6>Outras Informações</h6>
+					<p>${selecionado.descricao}</p>
+				</div>
+			</div>				
 		</div>
 	</div>
 	
-	<div class="container">
-		<div class="branco">
-			<div class="container">
-				<h6>Outras Informações</h6>
-				<p>${selecionado.descricao}</p>
-			</div>
-		</div>				
+	<!-- Formulário de Edição -->
+	<div id="formulario-edicao-imovel">
+		<h6 style="text-align: center">
+			Alterar Imovel || <a id="cancelarEditarImovel" href="#">cancelar</a>
+		</h6>
+		<jsp:include page="../formularios/update_imovel.jsp" />
 	</div>
-	
 	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>	
 	<script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js"/>"></script>	

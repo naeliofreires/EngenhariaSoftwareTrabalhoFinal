@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,52 +26,41 @@ public class ImovelController {
 	}
 
 	@RequestMapping(value = "cadastrarImovel", method = RequestMethod.POST )
-	String cadastrar(Imovel imovel, HttpSession session, Model model){		
+	String cadastrar(Imovel imovel, HttpSession session){		
 
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 
 		imovel.setIduser(usuario.getId());
+		imovel.setStatus(true);
+		
+		String tipo = imovel.getTipoimovel().toLowerCase();
+		imovel.setTipoimovel(tipo);
+		
+		System.out.println(imovel.getArea());
 
 		new ImovelDao().insertImovel(imovel);
-
-		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario.getId());
-
-		session.setAttribute("imoveis", imoveis);
 
 		return "redirect:minhaHome";
 	}
 
-
 	@RequestMapping(value = "atualizaImovel", method = RequestMethod.POST)
-	String atualizar(Imovel imovel, Model model, HttpSession session){
-
+	String atualizar(Imovel imovel){
+		
+		imovel.setTipoimovel(imovel.getTipoimovel().toLowerCase());
+		
 		new ImovelDao().updateImovel(imovel);
 
-		Usuario usuario_ = (Usuario) session.getAttribute("usuario");
-
-		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
-
-		model.addAttribute("imoveis", imoveis);
-
-		return "/users/home_usuario";
+		return "redirect:minhaHome";
 	}
 
-
 	@RequestMapping(value="remover")
-	String delete(Imovel imovel, Model model, HttpSession session){
+	String delete(Imovel imovel){
 
 		new ImovelDao().deleteImovel(imovel.getId());
 
-		Usuario usuario_ = (Usuario) session.getAttribute("usuario");
-
-		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario_.getId());
-
-		model.addAttribute("imoveis", imoveis);
-
-		return "/users/home_usuario";
+		return "redirect:minhaHome";
 
 	}
-
 
 	@RequestMapping("paginaInicial")
 	String telaHome(HttpSession session){
@@ -116,12 +104,12 @@ public class ImovelController {
 		session.setAttribute("selecionado", imovel);
 
 		imovel.setTipoimovel(imovel.getTipoimovel().toUpperCase());
+		
 		return "/users/edicao-imovel";
 	}
 
 	@RequestMapping("situacao")
 	String situacao(Imovel imovel, HttpSession session){
-
 
 		idao.setStatusImovel(imovel); // trocando o status
 
@@ -200,6 +188,7 @@ public class ImovelController {
 
 		return "casas-filtradas";
 	}
+
 }
 
 

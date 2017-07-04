@@ -28,7 +28,7 @@ public class ImovelDao {
 			st.setInt(2, imovel.getQtdquartos());
 			st.setString(3, imovel.getDescricao());
 			st.setFloat(4, imovel.getPreco());
-			st.setBoolean(5, imovel.getStatus());
+			st.setBoolean(5, imovel.isStatus());
 			st.setString(6, imovel.getEstado());
 			st.setString(7, imovel.getCidade());
 			st.setString(8, imovel.getBairro());
@@ -60,23 +60,25 @@ public class ImovelDao {
 	}
 
 	public void updateImovel(Imovel imovel){
-		String sql = "update imovel set tipoimovel = ?, qtdquartos = ?, descricao = ?, preco = ?, status = ?, estado = ?, cidade = ?, bairro = ?, rua = ?, numero = ?, complemento = ? where id = ?";
+		String sql = "update imovel set tipoimovel = ?, qtdquartos = ?, descricao = ?, preco = ?, status = ?, estado = ?, cidade = ?, bairro = ?, rua = ?, numero = ?, complemento = ?, area = ? where id = ?";
 
 		try {
+			
 			PreparedStatement st = connection.prepareStatement(sql);
 
 			st.setString(1, imovel.getTipoimovel());
 			st.setInt(2, imovel.getQtdquartos());
 			st.setString(3, imovel.getDescricao());
 			st.setFloat(4, imovel.getPreco());
-			st.setBoolean(5, imovel.getStatus());
+			st.setBoolean(5, imovel.isStatus());
 			st.setString(6, imovel.getEstado());
 			st.setString(7, imovel.getCidade());
 			st.setString(8, imovel.getBairro());
 			st.setString(9, imovel.getRua());
 			st.setString(10, imovel.getNumero());
 			st.setString(11, imovel.getComplemento());
-			st.setInt(12, imovel.getId());
+			st.setFloat(12, imovel.getArea());
+			st.setInt(13, imovel.getId());
 
 			st.execute();
 			st.close();
@@ -98,7 +100,7 @@ public class ImovelDao {
 				String tipoimovel = rs.getString("tipoimovel");
 				int qtdquartos = rs.getInt("qtdquartos");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				String descricao = rs.getString("descricao");
 				float preco = rs.getFloat("preco");
 				boolean status = rs.getBoolean("status");
@@ -121,6 +123,48 @@ public class ImovelDao {
 		}
 	}
 
+	public List<Imovel> getAllImovelByIdAndType(Integer id, String tipo){
+		
+		String SQL = "select * from imovel where tipoimovel=? and iduser=?";
+
+		try {	
+			PreparedStatement stmt = connection.prepareStatement(SQL);
+			
+			stmt.setString(1, tipo);
+			stmt.setInt(2, id);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			ArrayList<Imovel> imoveis = new ArrayList<Imovel>();
+			
+			while(rs.next()){
+				id = rs.getInt("id");
+				String tipoimovel = rs.getString("tipoimovel");
+				int qtdquartos = rs.getInt("qtdquartos");
+				int qtdsuites = rs.getInt("qtdsuites");
+				int area = (int)rs.getFloat("area");
+				String descricao = rs.getString("descricao");
+				float preco = rs.getFloat("preco");
+				boolean status = rs.getBoolean("status");
+				String estado = rs.getString("estado");
+				String cidade = rs.getString("cidade");
+				String bairro = rs.getString("bairro");
+				String rua = rs.getString("rua");
+				String numero = rs.getString("numero");
+				String complemento = rs.getString("complemento");
+				int iduser = rs.getInt("iduser");
+
+				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites, area));
+			}
+
+			rs.close();
+			stmt.close();
+			return imoveis;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public List<Imovel> getImovelByQtdQuartosMaiorIgual(int qtdQuartos){
 		String sql = "select * from imovel where qtdquartos >= ?";
 
@@ -135,7 +179,7 @@ public class ImovelDao {
 				String tipoimovel = rs.getString("tipoimovel");
 				int qtdquartos = rs.getInt("qtdquartos");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				String descricao = rs.getString("descricao");
 				float preco = rs.getFloat("preco");
 				boolean status = rs.getBoolean("status");
@@ -172,7 +216,7 @@ public class ImovelDao {
 				String tipoimovel = rs.getString("tipoimovel");
 				int qtdquartos = rs.getInt("qtdquartos");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				String descricao = rs.getString("descricao");
 				float preco = rs.getFloat("preco");
 				boolean status = rs.getBoolean("status");
@@ -210,7 +254,7 @@ public class ImovelDao {
 				String tipoimovel = rs.getString("tipoimovel");
 				int qtdquartos = rs.getInt("qtdquartos");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				String descricao = rs.getString("descricao");
 				float preco = rs.getFloat("preco");
 				boolean status = rs.getBoolean("status");
@@ -248,7 +292,7 @@ public class ImovelDao {
 				String tipoimovel = rs.getString("tipoimovel");
 				int qtdquartos = rs.getInt("qtdquartos");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				String descricao = rs.getString("descricao");
 				float preco = rs.getFloat("preco");
 				boolean status = rs.getBoolean("status");
@@ -286,7 +330,7 @@ public class ImovelDao {
 				String tipoimovel = rs.getString("tipoimovel");
 				int qtdquartos = rs.getInt("qtdquartos");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				String descricao = rs.getString("descricao");
 				float preco = rs.getFloat("preco");
 				boolean status = rs.getBoolean("status");
@@ -333,7 +377,7 @@ public class ImovelDao {
 				String complemento = rs.getString("complemento");			
 				int iduser = rs.getInt("iduser");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
 			}
 
@@ -370,8 +414,8 @@ public class ImovelDao {
 				String complemento = rs.getString("complemento");			
 				int iduser = rs.getInt("iduser");
 				int qtdsuites = rs.getInt("qtdsuites");
-				area = rs.getFloat("area");
-				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
+				int areax = (int) rs.getFloat("area");
+				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,areax));
 			}
 
 			rs.close();
@@ -407,8 +451,8 @@ public class ImovelDao {
 				String complemento = rs.getString("complemento");			
 				int iduser = rs.getInt("iduser");
 				int qtdsuites = rs.getInt("qtdsuites");
-				area = rs.getFloat("area");
-				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
+				int areax = (int) rs.getFloat("area");
+				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,areax));
 			}
 
 			rs.close();
@@ -446,7 +490,7 @@ public class ImovelDao {
 				int iduser = rs.getInt("iduser");
 
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
 			}
 
@@ -484,7 +528,7 @@ public class ImovelDao {
 				int iduser = rs.getInt("iduser");
 
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
 			}
 
@@ -522,7 +566,7 @@ public class ImovelDao {
 				int iduser = rs.getInt("iduser");
 
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
 			}
 
@@ -560,7 +604,7 @@ public class ImovelDao {
 				int iduser = rs.getInt("iduser");
 
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
 			}
 
@@ -597,7 +641,7 @@ public class ImovelDao {
 				int iduser = rs.getInt("iduser");
 
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 				imoveis.add(new Imovel(id, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area));
 			}
 
@@ -638,7 +682,7 @@ public class ImovelDao {
 				String complemento = rs.getString("complemento");
 				int iduser = rs.getInt("iduser");
 				int qtdsuites = rs.getInt("qtdsuites");
-				float area = rs.getFloat("area");
+				int area = (int)rs.getFloat("area");
 
 				imovel = new Imovel(idx, tipoimovel, qtdquartos, descricao, preco, status, estado, cidade, bairro, rua, numero, complemento,iduser,qtdsuites,area);
 			}
@@ -657,8 +701,9 @@ public class ImovelDao {
 		try {
 
 			PreparedStatement stmt = connection.prepareStatement(SQL);
-
-			stmt.setBoolean(1, imovel.getStatus());
+			
+			System.out.println("Alterando Situação: " + imovel.isStatus() + "ID: " + imovel.getId());
+			stmt.setBoolean(1, imovel.isStatus());
 			stmt.setInt(2, imovel.getId());
 
 			stmt.execute();

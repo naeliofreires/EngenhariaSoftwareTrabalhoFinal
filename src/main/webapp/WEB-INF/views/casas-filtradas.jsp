@@ -32,24 +32,7 @@
 	</nav>
 	
 	<br>
-	
-	<!-- Campo de Pesquisa Imovel - [Filtros] -->
-	<div class="container">
-		<nav>
-		<div class="nav-wrapper">
-			<form action="filtrando" method="POST">
-				<div class="input-field">
-					<input id="busca" name="busca" type="search" required> 
-					<label class="label-icon" for="busca">
-					<i class="material-icons black-text name">search</i></label>
-					<i class="material-icons ">close</i>
-				</div>
-			</form>
-		</div>
-		</nav>
-	</div>
 
-	<br>
 	<div class="branco lado-esquerdo categorias">
 		<h5>Categorias</h5>
 		<h6>Casas/Apartamentos</h6>

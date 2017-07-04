@@ -30,4 +30,16 @@ $('#addCasa').click(function() {
 	$('#casasPaginacao').hide();
 });
 
+$('#formulario-edicao-imovel').hide();
+
+$('#updateImovel').click(function() {
+	$('#formulario-edicao-imovel').show();
+	$('#dadosImovel').hide();
+});
+
+$('#cancelarEditarImovel').click(function() {
+	$('#formulario-edicao-imovel').hide();
+	$('#dadosImovel').show();
+});
+
 

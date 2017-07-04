@@ -6,10 +6,10 @@ public class Imovel {
 	private String tipoimovel;
 	private int qtdquartos;
 	private int qtdsuites;
-	private float area;
+	private int area;
 	private String descricao;
 	private float preco;
-	private boolean status;
+	private boolean status = true;
 
 	//endereco
 	private String estado;
@@ -58,7 +58,7 @@ public class Imovel {
 	}
 	
 	public Imovel(String tipoimovel, int qtdquartos, String descricao, float preco, boolean status, String estado,
-			String cidade, String bairro, String rua, String numero, String complemento, int iduser, int suite, float area) {
+			String cidade, String bairro, String rua, String numero, String complemento, int iduser, int suite, int area) {
 		this.tipoimovel = tipoimovel;
 		this.qtdquartos = qtdquartos;
 		this.descricao = descricao;
@@ -76,7 +76,7 @@ public class Imovel {
 	}
 	
 	public Imovel(int id, String tipoimovel, int qtdquartos, String descricao, float preco, boolean status,
-			String estado, String cidade, String bairro, String rua, String numero, String complemento, int iduser, int suite, float area) {
+			String estado, String cidade, String bairro, String rua, String numero, String complemento, int iduser, int suite, int area) {
 		this.id = id;
 		this.tipoimovel = tipoimovel;
 		this.qtdquartos = qtdquartos;
@@ -93,7 +93,7 @@ public class Imovel {
 		this.area = area;
 		this.qtdsuites = suite;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -110,6 +110,30 @@ public class Imovel {
 		this.tipoimovel = tipoimovel;
 	}
 
+	public int getQtdquartos() {
+		return qtdquartos;
+	}
+
+	public void setQtdquartos(int qtdquartos) {
+		this.qtdquartos = qtdquartos;
+	}
+
+	public int getQtdsuites() {
+		return qtdsuites;
+	}
+
+	public void setQtdsuites(int qtdsuites) {
+		this.qtdsuites = qtdsuites;
+	}
+
+	public int getArea() {
+		return area;
+	}
+
+	public void setArea(int area) {
+		this.area = area;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -122,17 +146,18 @@ public class Imovel {
 		return preco;
 	}
 
-	public void setPreco(float valor) {
-		this.preco = valor;
+	public void setPreco(float preco) {
+		this.preco = preco;
 	}
 
-	public boolean getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
 
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+
 	public String getEstado() {
 		return estado;
 	}
@@ -147,6 +172,14 @@ public class Imovel {
 
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
 	public String getRua() {
@@ -173,22 +206,6 @@ public class Imovel {
 		this.complemento = complemento;
 	}
 
-	public int getQtdquartos() {
-		return qtdquartos;
-	}
-
-	public void setQtdquartos(int qtdquartos) {
-		this.qtdquartos = qtdquartos;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
 	public int getIduser() {
 		return iduser;
 	}
@@ -196,20 +213,5 @@ public class Imovel {
 	public void setIduser(int iduser) {
 		this.iduser = iduser;
 	}
-
-	public int getQtdsuites() {
-		return qtdsuites;
-	}
-
-	public void setQtdsuites(int qtdsuites) {
-		this.qtdsuites = qtdsuites;
-	}
-
-	public float getArea() {
-		return area;
-	}
-
-	public void setArea(int area) {
-		this.area = area;
-	}
+	
 }

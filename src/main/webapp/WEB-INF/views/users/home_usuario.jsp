@@ -40,46 +40,102 @@
 	
 	<!-- Paginação das Casas -->
 	<div id="casasPaginacao" class="container">
-	<div class="row">
-		<div class="col s12">
-			<ul class="tabs">
-				<li class="tab col s4"><a href="#test1">Casas</a></li>
-				<li class="tab col s4"><a href="#test2">Apartamentos</a>
-				<li class="tab col s4"><a href="#test3">Lotes</a></li>
-			</ul>
-		</div>
-		<div id="test1" class="col s12">
-				
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s4"><a href="#casa">Casas</a></li>
+					<li class="tab col s4"><a href="#apartamento">Apartamentos</a>
+					<li class="tab col s4"><a href="#lote">Lotes</a></li>
+				</ul>
+			</div>
+			
+			<div id="casa" class="col s12">
+					<div class="row">
+						<c:forEach var="casa" items="${minhasCasas}">
+							<div class="col s3">
+								<div class="card">
+									<div class="card-image container">
+										<div class="container">
+											<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
+										</div>  
+									</div>
+									
+									<div class="card-content">
+										<label class="black-text name">Cidade: ${casa.cidade}</label><br>
+										<label class="black-text name">Bairro: ${casa.bairro}</label><br>
+										<label class="black-text name">Estado: ${casa.estado}</label><br>
+										<label class="black-text name">R$: ${casa.preco}</label><br>
+									</div>
+									
+									<div class="card-action">
+										<a href="dadosImovel?id=${casa.id}">Editar</a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+			</div><!--Final Div Casas  -->
+			
+			<div id="apartamento" class="col s12">
+			
 				<div class="row">
-				<c:forEach var="imovel" items="${imoveis}">
-					<div class="col s4">
-						<div class="card">
-							<div class="card-image container">
-								<div class="container">
-									<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
-								</div>  
-							</div>
-							
-							<div class="card-content">
-								<label class="black-text name">Cidade: ${imovel.cidade}</label><br>
-								<label class="black-text name">Bairro: ${imovel.bairro}</label><br>
-								<label class="black-text name">Estado: ${imovel.estado}</label><br>
-							</div>
-							
-							<div class="card-action">
-								<a href="dadosImovel?id=${imovel.id}">Editar</a>
+					<c:forEach var="apartamento" items="${meusApartamento}">
+						<div class="col s3">
+							<div class="card">
+								<div class="card-image container">
+									<div class="container">
+										<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
+									</div>  
+								</div>
+								
+								<div class="card-content">
+									<label class="black-text name">Cidade: ${apartamento.cidade}</label><br>
+									<label class="black-text name">Bairro: ${apartamento.bairro}</label><br>
+									<label class="black-text name">Estado: ${apartamento.estado}</label><br>
+									<label class="black-text name">R$: ${apartamento.preco}</label><br>
+								</div>
+								
+								<div class="card-action">
+									<a href="dadosImovel?id=${apartamento.id}">Editar</a>
+								</div>
 							</div>
 						</div>
-					</div>
-				</c:forEach>
-				</div>		
+					</c:forEach>
+				</div>	
+					
+			</div>
 			
-		</div><!--Final Div Casas  -->
-		<div id="test2" class="col s12">Test 2</div>
-		<div id="test3" class="col s12">Test 3</div>
-	</div>
-	</div>
-
+			<div id="lote" class="col s12">
+			
+				<div class="row">
+					<c:forEach var="lote" items="${meusLote}">
+						<div class="col s3">
+							<div class="card">
+								<div class="card-image container">
+									<div class="container">
+										<img src="<c:url value="/resources/img/house.jpg"/> "  height="150" width="50"/>
+									</div>  
+								</div>
+								
+								<div class="card-content">
+									<label class="black-text name">Cidade: ${lote.cidade}</label><br>
+									<label class="black-text name">Bairro: ${lote.bairro}</label><br>
+									<label class="black-text name">Estado: ${lote.estado}</label><br>
+									<label class="black-text name">R$: ${lote.preco}</label><br>
+								</div>
+								
+								<div class="card-action">
+									<a href="dadosImovel?id=${lote.id}">Editar</a>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>	
+					
+			</div>
+		</div>
+	</div>	
+	
 	<!-- Form Adicionar Casa -->
 	<div id="form-adicionar-casa">
 		<form action="cadastrarImovel" method="POST">
@@ -102,10 +158,10 @@
 					<input	name="qtdsuites" type="text" class="validate"> 
 					<label	for="qtdsuites">Quantidade de Suites</label>
 				</div>
-				
+
 				<div class="input-field col s6">
 					<i class="material-icons prefix">account_circle</i> 
-					<input	name="area" type="text" class="validate"> 
+					<input id="area" name="area" type="text" class="validate">
 					<label	for="area">Área M²</label>
 				</div>
 				
