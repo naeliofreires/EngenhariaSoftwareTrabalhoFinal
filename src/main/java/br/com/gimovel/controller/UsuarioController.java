@@ -1,7 +1,5 @@
 package br.com.gimovel.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -9,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.com.gimovel.dao.ImovelDao;
 import br.com.gimovel.dao.UsuarioDao;
-import br.com.gimovel.model.Imovel;
 import br.com.gimovel.model.Usuario;
 
 @Controller
@@ -22,9 +18,7 @@ public class UsuarioController {
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 
-		List<Imovel> imoveis = new ImovelDao().getImovelByUsuario(usuario.getId());
-
-		model.addAttribute("imoveis", imoveis);
+		session.setAttribute("usuario", usuario);
 
 		return "/users/home_usuario";
 	}

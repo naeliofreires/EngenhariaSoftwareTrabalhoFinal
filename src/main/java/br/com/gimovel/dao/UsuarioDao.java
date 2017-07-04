@@ -118,18 +118,17 @@ public class UsuarioDao {
 			
 			ResultSet rs = stmt.executeQuery();
 			
-			Usuario usr = new Usuario();
-			
 			if (rs.next()) {
-				usr.setId(rs.getInt("id"));
-				usr.setNome(rs.getString("nome"));
-				usr.setEmail(rs.getString("email"));
-				usr.setCpf(rs.getString("cpf"));
-				usr.setDataNascimento(rs.getString("dataNasc"));	
+				usrx.setId(rs.getInt("id"));
+				usrx.setNome(rs.getString("nome"));
+				usrx.setEmail(rs.getString("email"));
+				usrx.setCpf(rs.getString("cpf"));
+				usrx.setDataNascimento(rs.getString("dataNasc"));	
 			}
+			
 			rs.close();
 			stmt.close();
-			return usr;
+			return usrx;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
